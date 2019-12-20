@@ -8,5 +8,6 @@ target 'Drama' do
   # Pods for Drama
   pod 'SnapKit', '~> 5.0.0'
   pod 'Alamofire', '~> 5.0.0-rc.3'
+  pod 'XLPagerTabStrip', '~> 9.0'
 
 end
