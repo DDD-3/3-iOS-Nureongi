@@ -8,6 +8,7 @@
 
 import UIKit
 import XLPagerTabStrip
+import SnapKit
 
 class UpperTabBarRootViewController: ButtonBarPagerTabStripViewController {
 
@@ -72,14 +73,13 @@ extension UpperTabBarRootViewController {
 // MARK: - 스크롤뷰 세팅
 extension UpperTabBarRootViewController {
     private func setupScrollView() {
-        scrollView.translatesAutoresizingMaskIntoConstraints = false
-       
         scrollView.contentSize = CGSize(width: self.view.bounds.width, height: self.view.bounds.height)
         
-        scrollView.topAnchor.constraint(equalTo: buttonBarView.bottomAnchor).isActive = true
-        scrollView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor).isActive = true
-        scrollView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor).isActive = true
-        scrollView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
+        scrollView.snp.makeConstraints { (make) in
+            make.leading.trailing.bottom.equalToSuperview()
+            make.top.equalTo(buttonBarView.snp.bottom)
+        }
+        
     }
     
 }
