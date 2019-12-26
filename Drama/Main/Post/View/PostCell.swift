@@ -149,7 +149,6 @@ extension PostCell: UICollectionViewDataSource, UICollectionViewDelegate,UIColle
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: imagePageViewCellId, for: indexPath)
         
-        
         return cell
     }
     
