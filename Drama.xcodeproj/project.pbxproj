@@ -15,6 +15,7 @@
 		3337750023817B75006946A4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 333774FF23817B75006946A4 /* Assets.xcassets */; };
 		3337750323817B75006946A4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3337750123817B75006946A4 /* LaunchScreen.storyboard */; };
 		A07629D723B44E2100616EB3 /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07629D623B44E2100616EB3 /* PostCell.swift */; };
+		A07629DB23B4971B00616EB3 /* ImagePageViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07629DA23B4971B00616EB3 /* ImagePageViewCell.swift */; };
 		A0A6DEA623ADA88400FA3F3F /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A6DEA523ADA88400FA3F3F /* HomeViewController.swift */; };
 		A0A6DEA823ADA89F00FA3F3F /* RatingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A6DEA723ADA89F00FA3F3F /* RatingViewController.swift */; };
 		A0A6DEAA23ADB55600FA3F3F /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A6DEA923ADB55600FA3F3F /* PostViewController.swift */; };
@@ -32,6 +33,7 @@
 		3337750423817B75006946A4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		769B6AA2D7BCE491FA87F782 /* Pods-Drama.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Drama.release.xcconfig"; path = "Target Support Files/Pods-Drama/Pods-Drama.release.xcconfig"; sourceTree = "<group>"; };
 		A07629D623B44E2100616EB3 /* PostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
+		A07629DA23B4971B00616EB3 /* ImagePageViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePageViewCell.swift; sourceTree = "<group>"; };
 		A0A6DEA523ADA88400FA3F3F /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		A0A6DEA723ADA89F00FA3F3F /* RatingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingViewController.swift; sourceTree = "<group>"; };
 		A0A6DEA923ADB55600FA3F3F /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
@@ -93,6 +95,7 @@
 			isa = PBXGroup;
 			children = (
 				A07629D623B44E2100616EB3 /* PostCell.swift */,
+				A07629DA23B4971B00616EB3 /* ImagePageViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -263,6 +266,7 @@
 				A0A6DEA823ADA89F00FA3F3F /* RatingViewController.swift in Sources */,
 				333774F723817B73006946A4 /* AppDelegate.swift in Sources */,
 				333774F923817B73006946A4 /* SceneDelegate.swift in Sources */,
+				A07629DB23B4971B00616EB3 /* ImagePageViewCell.swift in Sources */,
 				A07629D723B44E2100616EB3 /* PostCell.swift in Sources */,
 				A0A6DEA623ADA88400FA3F3F /* HomeViewController.swift in Sources */,
 			);

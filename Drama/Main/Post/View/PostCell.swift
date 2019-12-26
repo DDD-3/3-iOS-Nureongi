@@ -11,13 +11,19 @@ import SnapKit
 
 class PostCell: UITableViewCell {
     
-    //TODO:  CollectionView 로 바꿔야함
-    var thumbnail: UIImageView = {
-       let imageView = UIImageView()
-       imageView.image = UIImage(named: "동백꽃")
-       //imageView.contentMode = .scaleToFill
-        imageView.contentMode = .scaleAspectFit
-        return imageView
+    private var imagePageViewCellId = "imagePageViewCellId"
+    
+    // 컨테이너 뷰
+    var cellView: UIView = {
+       let cellView = UIView(frame: CGRect.zero)
+       return cellView
+    }()
+    
+    lazy var thumbnail: UICollectionView = {
+       let layout = UICollectionViewFlowLayout()
+       layout.scrollDirection = .horizontal
+       let imagePageView = UICollectionView(frame: cellView.frame , collectionViewLayout: layout)
+       return imagePageView
     }()
     
     lazy var stackView: UIStackView = {
@@ -59,12 +65,16 @@ class PostCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
-        self.addSubview(thumbnail)
+        self.addSubview(cellView)
+        cellView.addSubview(thumbnail)
         self.addSubview(stackView)
         self.addSubview(descriptionLabel)
         
+        thumbnail.dataSource = self
+        thumbnail.delegate = self
+        thumbnail.register(ImagePageViewCell.self, forCellWithReuseIdentifier: imagePageViewCellId)
+   
         autoLayoutSetup()
-        
     }
     
     required init?(coder: NSCoder) {
@@ -77,8 +87,11 @@ class PostCell: UITableViewCell {
 //MARK: - UI AutoLayout
 extension PostCell {
     private func autoLayoutSetup() {
-        thumbnail.snp.makeConstraints { (make) in
-            make.top.leading.trailing.equalToSuperview().offset(15)
+        cellView.snp.makeConstraints { (make) in
+            //make.top.leading.trailing.equalToSuperview().offset(15)
+            make.top.equalTo(self.snp.top).offset(15)
+            make.leading.equalTo(self.snp.leading).offset(15)
+            make.trailing.equalTo(self.snp.trailing).offset(-15)
             make.width.equalTo(self.snp.width).offset(-30)
             make.height.equalTo(150)
         }
@@ -101,5 +114,33 @@ extension PostCell {
             make.leading.equalTo(self.snp.leading).offset(15)
             make.top.equalTo(stackView.snp.bottom).offset(10)
         }
+        
+        thumbnail.snp.makeConstraints { (make) in
+            make.top.leading.trailing.bottom.equalToSuperview()
+        }
     }
+}
+
+
+//MARK: - UICollectionView 
+
+extension PostCell: UICollectionViewDataSource, UICollectionViewDelegate,UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 3
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: imagePageViewCellId, for: indexPath)
+        
+        cell.backgroundColor = .red
+        
+        return cell
+    }
+    
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        layoutIfNeeded()
+        return CGSize(width: self.cellView.bounds.width, height: self.cellView.bounds.height)
+    }
+    
 }
