@@ -73,10 +73,10 @@ extension UpperTabBarRootViewController {
 // MARK: - 스크롤뷰 세팅
 extension UpperTabBarRootViewController {
     private func setupScrollView() {
-        scrollView.contentSize = CGSize(width: self.view.bounds.width, height: self.view.bounds.height)
+        scrollView.contentSize = CGSize(width: self.view.safeAreaLayoutGuide.layoutFrame.width, height: self.view.safeAreaLayoutGuide.layoutFrame.height)
         
         scrollView.snp.makeConstraints { (make) in
-            make.leading.trailing.bottom.equalToSuperview()
+            make.leading.trailing.bottom.equalTo(self.view.safeAreaLayoutGuide)
             make.top.equalTo(buttonBarView.snp.bottom)
         }
         

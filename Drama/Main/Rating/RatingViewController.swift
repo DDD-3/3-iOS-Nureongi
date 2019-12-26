@@ -28,8 +28,8 @@ class RatingViewController: UIViewController, IndicatorInfoProvider {
         
         view.addSubview(firstLabel)
         
-        firstLabel.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
-        firstLabel.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        firstLabel.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor).isActive = true
+        firstLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
      
         
     }

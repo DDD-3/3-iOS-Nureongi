@@ -8,16 +8,14 @@
 
 import UIKit
 import XLPagerTabStrip
-
+import SnapKit
 
 class PostViewController: UIViewController, IndicatorInfoProvider {
     
-    let firstLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "안녕"
-        return label
-    }()
+    let postCellId = "postCell"
+    
+    var tableView = UITableView()
+      
     
     func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
         return IndicatorInfo(title: "POST")
@@ -26,11 +24,42 @@ class PostViewController: UIViewController, IndicatorInfoProvider {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.register(PostCell.self, forCellReuseIdentifier: postCellId)
         
-        view.addSubview(firstLabel)
+        view.addSubview(tableView)
         
-        firstLabel.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
-        firstLabel.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        setupTableView()
     }
     
+}
+
+//MARK: - UI AutoLayout
+
+extension PostViewController {
+    private func setupTableView() {
+        tableView.snp.makeConstraints { (make) in
+            make.top.leading.trailing.bottom.equalTo(self.view.safeAreaLayoutGuide)
+        }
+    }
+}
+
+//MARK: - TableView DataSource & Delegate
+
+extension PostViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 6
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: postCellId, for: indexPath) 
+    
+        return cell
+    }
+    
+    //TODO: 사이즈 고정할 건지 정해야함
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 300
+    }
 }
