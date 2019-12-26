@@ -23,6 +23,7 @@ class PostCell: UITableViewCell {
        let layout = UICollectionViewFlowLayout()
        layout.scrollDirection = .horizontal
        let imagePageView = UICollectionView(frame: cellView.frame , collectionViewLayout: layout)
+       imagePageView.backgroundColor = .clear
        return imagePageView
     }()
     
@@ -73,6 +74,7 @@ class PostCell: UITableViewCell {
         thumbnail.dataSource = self
         thumbnail.delegate = self
         thumbnail.register(ImagePageViewCell.self, forCellWithReuseIdentifier: imagePageViewCellId)
+        thumbnail.isPagingEnabled = true
    
         autoLayoutSetup()
     }
@@ -132,7 +134,6 @@ extension PostCell: UICollectionViewDataSource, UICollectionViewDelegate,UIColle
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: imagePageViewCellId, for: indexPath)
         
-        cell.backgroundColor = .red
         
         return cell
     }
@@ -143,4 +144,7 @@ extension PostCell: UICollectionViewDataSource, UICollectionViewDelegate,UIColle
         return CGSize(width: self.cellView.bounds.width, height: self.cellView.bounds.height)
     }
     
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
+    }
 }

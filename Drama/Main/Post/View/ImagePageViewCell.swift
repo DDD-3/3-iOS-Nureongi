@@ -7,21 +7,33 @@
 //
 
 import UIKit
+import SnapKit
 
 class ImagePageViewCell: UICollectionViewCell {
-    //    private var imageView: UIImageView = {
-    //       let imageView = UIImageView()
-    //        imageView.image = UIImage(named: "동백꽃")
+ 
+    var imgView: UIImageView = {
+       let imgView = UIImageView()
+       imgView.image = UIImage(named: "동백꽃")
+       imgView.contentMode = .scaleAspectFill
+       return imgView
+    }()
     
-    //imageView.contentMode = .scaleToFill
-    //imageView.contentMode = .scaleAspectFit
-    //        return imageView
-    //    }()
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        addSubview(imgView)
+        setupAutoLayout()
+    }
+     
+     required init?(coder: NSCoder) {
+         fatalError()
+     }
+}
+
+extension ImagePageViewCell {
     
-    //        imageView.snp.makeConstraints { (make) in
-    //            make.top.leading.trailing.bottom.equalToSuperview()
-    //        }
-    
-    
-         
+    private func setupAutoLayout() {
+        imgView.snp.makeConstraints { (make) in
+            make.top.trailing.leading.bottom.equalToSuperview()
+        }
+    }
 }
