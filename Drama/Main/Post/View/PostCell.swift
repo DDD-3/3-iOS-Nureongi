@@ -55,11 +55,19 @@ class PostCell: UITableViewCell {
       return postBtn
     }()
     
-    var descriptionLabel: UILabel = {
+    var titleLabel: UILabel = {
        let lbl = UILabel()
         lbl.font = .boldSystemFont(ofSize: 14)
         lbl.text = "동백꽃 필 무렵"
        return lbl
+    }()
+    
+    var descriptionLabel: UILabel = {
+        let lbl = UILabel()
+        lbl.font = .systemFont(ofSize: 13)
+        lbl.numberOfLines = 0
+        lbl.text = "편견에 갇힌 맹수 동백을 깨우는, 촌므파탈 황용식이의 폭격형 로맨스 사랑하면 다 돼! 이들을 둘러싼 생활밀착형 치정 로맨스 사랑 같은 소리하네."
+        return lbl
     }()
     
     
@@ -69,6 +77,7 @@ class PostCell: UITableViewCell {
         self.addSubview(cellView)
         cellView.addSubview(thumbnail)
         self.addSubview(stackView)
+        self.addSubview(titleLabel)
         self.addSubview(descriptionLabel)
         
         thumbnail.dataSource = self
@@ -105,16 +114,22 @@ extension PostCell {
         }
         
         postButton.snp.makeConstraints { (make) in
-            make.width.height.equalTo(40)
+            make.width.height.equalTo(35)
         }
         
         likeButton.snp.makeConstraints { (make) in
-            make.width.height.equalTo(40)
+            make.width.height.equalTo(35)
+        }
+        
+        titleLabel.snp.makeConstraints { (make) in
+            make.leading.equalTo(self.snp.leading).offset(15)
+            make.top.equalTo(stackView.snp.bottom).offset(10)
         }
         
         descriptionLabel.snp.makeConstraints { (make) in
+            make.top.equalTo(titleLabel.snp.bottom).offset(5)
             make.leading.equalTo(self.snp.leading).offset(15)
-            make.top.equalTo(stackView.snp.bottom).offset(10)
+            make.trailing.equalTo(self.snp.trailing).offset(-15)
         }
         
         thumbnail.snp.makeConstraints { (make) in
