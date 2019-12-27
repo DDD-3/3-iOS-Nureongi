@@ -66,7 +66,7 @@ extension PostViewController: UITableViewDelegate, UITableViewDataSource {
     // 섹션 헤더
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let header = UIView()
-        header.backgroundColor = .blue
+        header.backgroundColor = .brown
 
         return header
     }
