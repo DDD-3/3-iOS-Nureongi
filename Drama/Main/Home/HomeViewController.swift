@@ -9,10 +9,7 @@
 import UIKit
 import XLPagerTabStrip
 
-
 class HomeViewController: UIViewController, IndicatorInfoProvider {
-    
-    
     let firstLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
