@@ -13,7 +13,7 @@ class PostCell: UITableViewCell {
     
     private var imagePageViewCellId = "imagePageViewCellId"
     
-    // 컨테이너 뷰
+    //MARK: - View 그룹
     var cellView: UIView = {
        let cellView = UIView(frame: CGRect.zero)
        return cellView
@@ -147,7 +147,7 @@ extension PostCell: UICollectionViewDataSource, UICollectionViewDelegate,UIColle
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: imagePageViewCellId, for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: imagePageViewCellId, for: indexPath) as! ImagePageViewCell
         
         return cell
     }

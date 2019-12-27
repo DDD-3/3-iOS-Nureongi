@@ -53,7 +53,7 @@ extension PostViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: postCellId, for: indexPath) 
+        let cell = tableView.dequeueReusableCell(withIdentifier: postCellId, for: indexPath)  as! PostCell
     
         return cell
     }
