@@ -14,6 +14,9 @@
 		333774FE23817B73006946A4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 333774FC23817B73006946A4 /* Main.storyboard */; };
 		3337750023817B75006946A4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 333774FF23817B75006946A4 /* Assets.xcassets */; };
 		3337750323817B75006946A4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3337750123817B75006946A4 /* LaunchScreen.storyboard */; };
+		A060216223B5C2E00033549A /* DropDownButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A060216123B5C2E00033549A /* DropDownButton.swift */; };
+		A060216423B5C3FD0033549A /* DropDownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A060216323B5C3FD0033549A /* DropDownView.swift */; };
+		A060216723B5CB240033549A /* DropDownDataSendable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A060216623B5CB240033549A /* DropDownDataSendable.swift */; };
 		A07629D723B44E2100616EB3 /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07629D623B44E2100616EB3 /* PostCell.swift */; };
 		A07629DB23B4971B00616EB3 /* ImagePageViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07629DA23B4971B00616EB3 /* ImagePageViewCell.swift */; };
 		A0A6DEA623ADA88400FA3F3F /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A6DEA523ADA88400FA3F3F /* HomeViewController.swift */; };
@@ -32,6 +35,9 @@
 		3337750223817B75006946A4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3337750423817B75006946A4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		769B6AA2D7BCE491FA87F782 /* Pods-Drama.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Drama.release.xcconfig"; path = "Target Support Files/Pods-Drama/Pods-Drama.release.xcconfig"; sourceTree = "<group>"; };
+		A060216123B5C2E00033549A /* DropDownButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownButton.swift; sourceTree = "<group>"; };
+		A060216323B5C3FD0033549A /* DropDownView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownView.swift; sourceTree = "<group>"; };
+		A060216623B5CB240033549A /* DropDownDataSendable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownDataSendable.swift; sourceTree = "<group>"; };
 		A07629D623B44E2100616EB3 /* PostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
 		A07629DA23B4971B00616EB3 /* ImagePageViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePageViewCell.swift; sourceTree = "<group>"; };
 		A0A6DEA523ADA88400FA3F3F /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -73,6 +79,7 @@
 		333774F523817B73006946A4 /* Drama */ = {
 			isa = PBXGroup;
 			children = (
+				A060215F23B5C2BC0033549A /* Service */,
 				A0A6DEAB23ADE7AE00FA3F3F /* Main */,
 				333774F623817B73006946A4 /* AppDelegate.swift */,
 				333774F823817B73006946A4 /* SceneDelegate.swift */,
@@ -89,6 +96,32 @@
 				2605280796F0717E28A0A462 /* Pods_Drama.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A060215F23B5C2BC0033549A /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				A060216023B5C2C80033549A /* Service View */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		A060216023B5C2C80033549A /* Service View */ = {
+			isa = PBXGroup;
+			children = (
+				A060216523B5CB060033549A /* DropDownView */,
+			);
+			path = "Service View";
+			sourceTree = "<group>";
+		};
+		A060216523B5CB060033549A /* DropDownView */ = {
+			isa = PBXGroup;
+			children = (
+				A060216623B5CB240033549A /* DropDownDataSendable.swift */,
+				A060216123B5C2E00033549A /* DropDownButton.swift */,
+				A060216323B5C3FD0033549A /* DropDownView.swift */,
+			);
+			path = DropDownView;
 			sourceTree = "<group>";
 		};
 		A07629D523B44E0000616EB3 /* View */ = {
@@ -261,10 +294,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A060216223B5C2E00033549A /* DropDownButton.swift in Sources */,
+				A060216423B5C3FD0033549A /* DropDownView.swift in Sources */,
 				A0A6DEAA23ADB55600FA3F3F /* PostViewController.swift in Sources */,
 				333774FB23817B73006946A4 /* UpperTabBarRootViewController.swift in Sources */,
 				A0A6DEA823ADA89F00FA3F3F /* RatingViewController.swift in Sources */,
 				333774F723817B73006946A4 /* AppDelegate.swift in Sources */,
+				A060216723B5CB240033549A /* DropDownDataSendable.swift in Sources */,
 				333774F923817B73006946A4 /* SceneDelegate.swift in Sources */,
 				A07629DB23B4971B00616EB3 /* ImagePageViewCell.swift in Sources */,
 				A07629D723B44E2100616EB3 /* PostCell.swift in Sources */,
