@@ -40,7 +40,7 @@ class DropDownButton: UIButton, DropDownDataSendable {
     
     override func didMoveToSuperview() {
         // 드랍뷰에 추가하는게 아니라 드랍뷰의 슈퍼뷰에 추가한다.
-        self.superview?.addSubview(dropView)
+        self.superview?.superview?.addSubview(dropView)
         self.superview?.bringSubviewToFront(dropView)
         
         
