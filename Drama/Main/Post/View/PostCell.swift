@@ -161,4 +161,13 @@ extension PostCell: UICollectionViewDataSource, UICollectionViewDelegate,UIColle
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 0
     }
+    
+    // 페이지 컨트롤과 스크롤뷰 연동
+    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+        
+        let x = targetContentOffset.pointee.x
+        
+        pageController.currentPage = Int(x / self.cellView.frame.width)
+        
+    }
 }
