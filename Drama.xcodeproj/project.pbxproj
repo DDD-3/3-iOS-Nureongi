@@ -17,6 +17,8 @@
 		A060216223B5C2E00033549A /* DropDownButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A060216123B5C2E00033549A /* DropDownButton.swift */; };
 		A060216423B5C3FD0033549A /* DropDownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A060216323B5C3FD0033549A /* DropDownView.swift */; };
 		A060216723B5CB240033549A /* DropDownDataSendable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A060216623B5CB240033549A /* DropDownDataSendable.swift */; };
+		A0699B5223B739A800DB4ECE /* PostSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0699B5123B739A800DB4ECE /* PostSectionHeader.swift */; };
+		A0699B5623B7423800DB4ECE /* 동백꽃.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = A0699B5523B7423800DB4ECE /* 동백꽃.jpeg */; };
 		A07629D723B44E2100616EB3 /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07629D623B44E2100616EB3 /* PostCell.swift */; };
 		A07629DB23B4971B00616EB3 /* ImagePageViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07629DA23B4971B00616EB3 /* ImagePageViewCell.swift */; };
 		A0A6DEA623ADA88400FA3F3F /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A6DEA523ADA88400FA3F3F /* HomeViewController.swift */; };
@@ -38,6 +40,8 @@
 		A060216123B5C2E00033549A /* DropDownButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownButton.swift; sourceTree = "<group>"; };
 		A060216323B5C3FD0033549A /* DropDownView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownView.swift; sourceTree = "<group>"; };
 		A060216623B5CB240033549A /* DropDownDataSendable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownDataSendable.swift; sourceTree = "<group>"; };
+		A0699B5123B739A800DB4ECE /* PostSectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostSectionHeader.swift; sourceTree = "<group>"; };
+		A0699B5523B7423800DB4ECE /* 동백꽃.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "동백꽃.jpeg"; sourceTree = "<group>"; };
 		A07629D623B44E2100616EB3 /* PostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
 		A07629DA23B4971B00616EB3 /* ImagePageViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePageViewCell.swift; sourceTree = "<group>"; };
 		A0A6DEA523ADA88400FA3F3F /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -127,7 +131,9 @@
 		A07629D523B44E0000616EB3 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				A0699B5523B7423800DB4ECE /* 동백꽃.jpeg */,
 				A07629D623B44E2100616EB3 /* PostCell.swift */,
+				A0699B5123B739A800DB4ECE /* PostSectionHeader.swift */,
 				A07629DA23B4971B00616EB3 /* ImagePageViewCell.swift */,
 			);
 			path = View;
@@ -242,6 +248,7 @@
 				3337750323817B75006946A4 /* LaunchScreen.storyboard in Resources */,
 				3337750023817B75006946A4 /* Assets.xcassets in Resources */,
 				333774FE23817B73006946A4 /* Main.storyboard in Resources */,
+				A0699B5623B7423800DB4ECE /* 동백꽃.jpeg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -300,6 +307,7 @@
 				333774FB23817B73006946A4 /* UpperTabBarRootViewController.swift in Sources */,
 				A0A6DEA823ADA89F00FA3F3F /* RatingViewController.swift in Sources */,
 				333774F723817B73006946A4 /* AppDelegate.swift in Sources */,
+				A0699B5223B739A800DB4ECE /* PostSectionHeader.swift in Sources */,
 				A060216723B5CB240033549A /* DropDownDataSendable.swift in Sources */,
 				333774F923817B73006946A4 /* SceneDelegate.swift in Sources */,
 				A07629DB23B4971B00616EB3 /* ImagePageViewCell.swift in Sources */,

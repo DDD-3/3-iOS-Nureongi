@@ -13,7 +13,7 @@ class ImagePageViewCell: UICollectionViewCell {
  
     var imgView: UIImageView = {
        let imgView = UIImageView()
-       imgView.image = UIImage(named: "동백꽃")
+       imgView.image = UIImage(named: "동백꽃.jpeg")
        imgView.contentMode = .scaleAspectFill
        return imgView
     }()

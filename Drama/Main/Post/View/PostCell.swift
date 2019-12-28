@@ -11,7 +11,7 @@ import SnapKit
 
 class PostCell: UITableViewCell {
     
-    private var imagePageViewCellId = "imagePageViewCellId"
+    private var imagePageViewCellID = "imagePageViewCellId"
     
     //MARK: - View 그룹
     var cellView: UIView = {
@@ -46,6 +46,7 @@ class PostCell: UITableViewCell {
         pageCount.currentPageIndicatorTintColor = .red
         pageCount.pageIndicatorTintColor = .gray
         pageCount.numberOfPages = 3
+        pageCount.hidesForSinglePage = true
         return pageCount
     }()
     
@@ -82,7 +83,7 @@ class PostCell: UITableViewCell {
         
         thumbnail.dataSource = self
         thumbnail.delegate = self
-        thumbnail.register(ImagePageViewCell.self, forCellWithReuseIdentifier: imagePageViewCellId)
+        thumbnail.register(ImagePageViewCell.self, forCellWithReuseIdentifier: imagePageViewCellID)
         thumbnail.isPagingEnabled = true
    
         autoLayoutSetup()
@@ -147,7 +148,7 @@ extension PostCell: UICollectionViewDataSource, UICollectionViewDelegate,UIColle
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: imagePageViewCellId, for: indexPath) as! ImagePageViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: imagePageViewCellID, for: indexPath) as! ImagePageViewCell
         
         return cell
     }

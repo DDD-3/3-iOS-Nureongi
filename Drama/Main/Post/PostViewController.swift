@@ -12,9 +12,10 @@ import SnapKit
 
 class PostViewController: UIViewController, IndicatorInfoProvider {
     
-    let postCellId = "postCell"
+    let postCellID = "postCell"
+    let headerCellID = "headerCell"
     
-    var tableView = UITableView()
+    var tableView = UITableView(frame: CGRect.zero, style: .grouped)
       
     
     func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
@@ -26,7 +27,8 @@ class PostViewController: UIViewController, IndicatorInfoProvider {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.register(PostCell.self, forCellReuseIdentifier: postCellId)
+        tableView.register(PostCell.self, forCellReuseIdentifier: postCellID)
+        tableView.register(PostSectionHeader.self,forHeaderFooterViewReuseIdentifier: headerCellID)
         
         view.addSubview(tableView)
         
@@ -53,8 +55,9 @@ extension PostViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: postCellId, for: indexPath)  as! PostCell
-    
+        let cell = tableView.dequeueReusableCell(withIdentifier: postCellID, for: indexPath)  as! PostCell
+        cell.selectionStyle = .none
+        
         return cell
     }
     
@@ -65,11 +68,17 @@ extension PostViewController: UITableViewDelegate, UITableViewDataSource {
     
     // 섹션 헤더
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let header = UIView()
-        header.backgroundColor = .gray
-
+        guard let header = tableView.dequeueReusableHeaderFooterView(withIdentifier:
+            headerCellID) as? PostSectionHeader else {
+                return UITableViewHeaderFooterView()
+        }
+        
         return header
     }
+    
+//    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+//        tableView.headerView(forSection: section)?.backgroundView?.backgroundColor = .white
+//    }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 40
