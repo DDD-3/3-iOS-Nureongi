@@ -23,6 +23,7 @@
 		A0A6DEA623ADA88400FA3F3F /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A6DEA523ADA88400FA3F3F /* HomeViewController.swift */; };
 		A0A6DEA823ADA89F00FA3F3F /* RatingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A6DEA723ADA89F00FA3F3F /* RatingViewController.swift */; };
 		A0A6DEAA23ADB55600FA3F3F /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A6DEA923ADB55600FA3F3F /* PostViewController.swift */; };
+		A0DB11B723B7985400CB20D1 /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DB11B623B7985400CB20D1 /* VideoViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +46,7 @@
 		A0A6DEA523ADA88400FA3F3F /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		A0A6DEA723ADA89F00FA3F3F /* RatingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingViewController.swift; sourceTree = "<group>"; };
 		A0A6DEA923ADB55600FA3F3F /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
+		A0DB11B623B7985400CB20D1 /* VideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoViewController.swift; sourceTree = "<group>"; };
 		CC0022D13A86D103646B717C /* Pods-Drama.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Drama.debug.xcconfig"; path = "Target Support Files/Pods-Drama/Pods-Drama.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -144,6 +146,7 @@
 				A0A6DEAD23ADE7FE00FA3F3F /* Rating */,
 				A0A6DEAC23ADE7F500FA3F3F /* Home */,
 				A0A6DEAE23ADE80700FA3F3F /* Post */,
+				A0DB11B523B7982500CB20D1 /* Video */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -171,6 +174,14 @@
 				A0A6DEA923ADB55600FA3F3F /* PostViewController.swift */,
 			);
 			path = Post;
+			sourceTree = "<group>";
+		};
+		A0DB11B523B7982500CB20D1 /* Video */ = {
+			isa = PBXGroup;
+			children = (
+				A0DB11B623B7985400CB20D1 /* VideoViewController.swift */,
+			);
+			path = Video;
 			sourceTree = "<group>";
 		};
 		F00CEC3B9BFF0331AE5FCE0A /* Pods */ = {
@@ -300,6 +311,7 @@
 			files = (
 				A060216223B5C2E00033549A /* DropDownButton.swift in Sources */,
 				A060216423B5C3FD0033549A /* DropDownView.swift in Sources */,
+				A0DB11B723B7985400CB20D1 /* VideoViewController.swift in Sources */,
 				A0A6DEAA23ADB55600FA3F3F /* PostViewController.swift in Sources */,
 				333774FB23817B73006946A4 /* UpperTabBarRootViewController.swift in Sources */,
 				A0A6DEA823ADA89F00FA3F3F /* RatingViewController.swift in Sources */,

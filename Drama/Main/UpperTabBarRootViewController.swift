@@ -34,8 +34,10 @@ class UpperTabBarRootViewController: ButtonBarPagerTabStripViewController {
          let child1 = self.storyboard?.instantiateViewController(withIdentifier: "Home") as! HomeViewController
          let child2 = self.storyboard?.instantiateViewController(withIdentifier: "Rating") as! RatingViewController
          let child3 = self.storyboard?.instantiateViewController(withIdentifier: "Post") as! PostViewController
+        
+         let child4 = VideoViewController()
 
-         return [child1, child2, child3]
+         return [child1, child2, child3, child4]
     }
 }
 
