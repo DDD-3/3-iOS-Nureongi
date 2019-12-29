@@ -47,6 +47,7 @@ class PostCell: UITableViewCell {
         pageCount.pageIndicatorTintColor = .gray
         pageCount.numberOfPages = 3
         pageCount.hidesForSinglePage = true
+        pageCount.isUserInteractionEnabled = false
         return pageCount
     }()
     
