@@ -76,15 +76,17 @@ extension PostViewController {
             make.leading.trailing.bottom.equalTo(self.view.safeAreaLayoutGuide)
         }
         
+        setupLeftRightDropDownButton()
+    }
+    
+    private func setupLeftRightDropDownButton() {
         leftButton.snp.makeConstraints { (make) in
             make.top.equalTo(sectionHeader.snp.top).offset(10)
             make.leading.equalTo(sectionHeader.snp.leading).offset(15)
             make.bottom.equalTo(sectionHeader.snp.bottom).offset(-5)
             make.width.equalTo(70)
-        }
-        
-    
-        
+               }
+               
         rightButton.snp.makeConstraints { (make) in
             make.top.equalTo(sectionHeader.snp.top).offset(10)
             make.trailing.equalTo(sectionHeader.snp.trailing).offset(-15)
@@ -119,7 +121,6 @@ extension PostViewController: UITableViewDelegate, UITableViewDataSource {
 
         let y = targetContentOffset.pointee.y
 
-        print(y)
         if y > 0, sectionHeaderRemoved == false {
             sectionHeaderRemoved = true
             sectionHeader.isHidden = true
@@ -141,24 +142,8 @@ extension PostViewController: UITableViewDelegate, UITableViewDataSource {
             sectionHeader.snp.updateConstraints { (make) in
                 make.height.equalTo(50)
             }
-            leftButton.snp.makeConstraints { (make) in
-                make.top.equalTo(sectionHeader.snp.top).offset(10)
-                make.leading.equalTo(sectionHeader.snp.leading).offset(15)
-                make.bottom.equalTo(sectionHeader.snp.bottom).offset(-5)
-                make.width.equalTo(70)
-            }
-                
-            rightButton.snp.makeConstraints { (make) in
-                make.top.equalTo(sectionHeader.snp.top).offset(10)
-                make.trailing.equalTo(sectionHeader.snp.trailing).offset(-15)
-                make.bottom.equalTo(sectionHeader.snp.bottom).offset(-5)
-                make.width.equalTo(70)
-            }
             
-//            UIView.animate(withDuration: 0.5) {
-//                self.view.layoutIfNeeded()
-//            }
-           
+            setupLeftRightDropDownButton()
         }
         
         
