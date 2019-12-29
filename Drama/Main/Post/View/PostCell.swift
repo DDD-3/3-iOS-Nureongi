@@ -13,7 +13,7 @@ class PostCell: UITableViewCell {
     
     private var imagePageViewCellID = "imagePageViewCellId"
     
-    //MARK: - View 그룹
+    //MARK: - 여기부터 Views
     var cellView: UIView = {
        let cellView = UIView(frame: CGRect.zero)
        return cellView
@@ -71,8 +71,13 @@ class PostCell: UITableViewCell {
         lbl.text = "편견에 갇힌 맹수 동백을 깨우는, 촌므파탈 황용식이의 폭격형 로맨스 사랑하면 다 돼! 이들을 둘러싼 생활밀착형 치정 로맨스 사랑 같은 소리하네."
         return lbl
     }()
+    //MARK: - 여가까지 Views
+    
+
     
     
+    
+    //MARK: - 초기화구문
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
@@ -132,6 +137,7 @@ extension PostCell {
             make.top.equalTo(titleLabel.snp.bottom).offset(5)
             make.leading.equalTo(self.snp.leading).offset(15)
             make.trailing.equalTo(self.snp.trailing).offset(-15)
+            make.bottom.equalTo(self.snp.bottom).offset(-10)
         }
         
         thumbnail.snp.makeConstraints { (make) in

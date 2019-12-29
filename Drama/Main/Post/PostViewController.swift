@@ -48,6 +48,7 @@ class PostViewController: UIViewController, IndicatorInfoProvider {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(PostCell.self, forCellReuseIdentifier: postCellID)
+        tableView.rowHeight = UITableView.automaticDimension
         
         
         view.addSubview(tableView)
@@ -110,11 +111,9 @@ extension PostViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
-    //TODO: 사이즈 고정할 건지 정해야함
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         return 300
     }
-    
    
     // Section Header 스크롤때마다 나타나고 사라지고 구현
     func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
