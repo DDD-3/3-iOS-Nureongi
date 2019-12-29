@@ -13,7 +13,6 @@ import SnapKit
 class PostViewController: UIViewController, IndicatorInfoProvider {
     
     let postCellID = "postCell"
-   
     
     var tableView = UITableView()
     
@@ -83,6 +82,8 @@ extension PostViewController {
             make.width.equalTo(70)
         }
         
+    
+        
         rightButton.snp.makeConstraints { (make) in
             make.top.equalTo(sectionHeader.snp.top).offset(30)
             make.trailing.equalTo(sectionHeader.snp.trailing).offset(-15)
@@ -110,5 +111,25 @@ extension PostViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 300
     }
+    
+    
+//    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+//
+//        let y = targetContentOffset.pointee.y
+//
+//        print(y)
+//        if y > 0 {
+//            rightButton.snp.removeConstraints()
+//            leftButton.snp.removeConstraints()
+//            sectionHeader.snp.updateConstraints { (make) in
+//                make.height.equalTo(0)
+//                constraints?.append(make.height.equalTo(80))
+//        }
+//
+////            UIView.animate(withDuration: 0.3) {
+////                self.view.layoutIfNeeded()
+////            }
+//        }
+//    }
     
 }
