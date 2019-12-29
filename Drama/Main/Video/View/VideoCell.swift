@@ -13,9 +13,9 @@ class VideoCell: UITableViewCell {
 
     var imgView: UIImageView = {
        let imgView = UIImageView()
-       let img = UIImage(named: "동백꽃.jpeg")
+       let img = UIImage(named: "드라마.jpeg")
        imgView.image = img
-       imgView.contentMode = .scaleAspectFit
+       imgView.contentMode = .scaleToFill
        return imgView
     }()
     
@@ -38,8 +38,8 @@ extension VideoCell {
             make.top.equalTo(self.snp.top).offset(15)
             make.leading.equalTo(self.snp.leading).offset(15)
             //make.trailing.equalTo(self.snp.trailing).offset(-15)
-            make.bottom.equalTo(self.snp.bottom).offset(-15)
-            make.width.equalTo(self.snp.width).dividedBy(2.5)
+            make.bottom.lessThanOrEqualTo(self.snp.bottom).offset(-15)
+            make.width.equalTo(self.snp.width).dividedBy(2.3)
         }
     }
 }
