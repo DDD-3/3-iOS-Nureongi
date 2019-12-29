@@ -15,6 +15,7 @@ class PostViewController: UIViewController, IndicatorInfoProvider {
     let postCellID = "postCell"
     
     var tableView = UITableView()
+    var sectionHeaderRemoved: Bool = false
     
     var sectionHeader : UIView = {
         let sectionHeader = UIView()
@@ -32,7 +33,7 @@ class PostViewController: UIViewController, IndicatorInfoProvider {
     
     var rightButton: DropDownButton = {
         let rightBtn = DropDownButton(array: ["인기순","전체순","화제순"])
-        rightBtn.titleLabel?.font = .boldSystemFont(ofSize: 12)
+        rightBtn.titleLabel?.font = .boldSystemFont(ofSize: 15)
         rightBtn.setTitleColor(.black, for: .normal)
         return rightBtn
     }()
@@ -85,7 +86,7 @@ extension PostViewController {
     
         
         rightButton.snp.makeConstraints { (make) in
-            make.top.equalTo(sectionHeader.snp.top).offset(30)
+            make.top.equalTo(sectionHeader.snp.top).offset(10)
             make.trailing.equalTo(sectionHeader.snp.trailing).offset(-15)
             make.bottom.equalTo(sectionHeader.snp.bottom).offset(-5)
             make.width.equalTo(70)
@@ -112,24 +113,55 @@ extension PostViewController: UITableViewDelegate, UITableViewDataSource {
         return 300
     }
     
-    
-//    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
-//
-//        let y = targetContentOffset.pointee.y
-//
-//        print(y)
-//        if y > 0 {
-//            rightButton.snp.removeConstraints()
-//            leftButton.snp.removeConstraints()
-//            sectionHeader.snp.updateConstraints { (make) in
-//                make.height.equalTo(0)
-//                constraints?.append(make.height.equalTo(80))
-//        }
-//
-////            UIView.animate(withDuration: 0.3) {
-////                self.view.layoutIfNeeded()
-////            }
-//        }
-//    }
+   
+    // Section Header 스크롤때마다 나타나고 사라지고 구현
+    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+
+        let y = targetContentOffset.pointee.y
+
+        print(y)
+        if y > 0, sectionHeaderRemoved == false {
+            sectionHeaderRemoved = true
+            sectionHeader.isHidden = true
+            
+            rightButton.snp.removeConstraints()
+            leftButton.snp.removeConstraints()
+            
+            sectionHeader.snp.updateConstraints { (make) in
+                make.height.equalTo(0)
+            }
+            
+            UIView.animate(withDuration: 0.5) {
+                self.view.layoutIfNeeded()
+            }
+        } else if y == 0, sectionHeaderRemoved == true {
+            sectionHeaderRemoved = false
+            sectionHeader.isHidden = false
+            
+            sectionHeader.snp.updateConstraints { (make) in
+                make.height.equalTo(50)
+            }
+            leftButton.snp.makeConstraints { (make) in
+                make.top.equalTo(sectionHeader.snp.top).offset(10)
+                make.leading.equalTo(sectionHeader.snp.leading).offset(15)
+                make.bottom.equalTo(sectionHeader.snp.bottom).offset(-5)
+                make.width.equalTo(70)
+            }
+                
+            rightButton.snp.makeConstraints { (make) in
+                make.top.equalTo(sectionHeader.snp.top).offset(10)
+                make.trailing.equalTo(sectionHeader.snp.trailing).offset(-15)
+                make.bottom.equalTo(sectionHeader.snp.bottom).offset(-5)
+                make.width.equalTo(70)
+            }
+            
+//            UIView.animate(withDuration: 0.5) {
+//                self.view.layoutIfNeeded()
+//            }
+           
+        }
+        
+        
+    }
     
 }
