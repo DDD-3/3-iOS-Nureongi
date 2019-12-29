@@ -15,7 +15,7 @@ class VideoCell: UITableViewCell {
        let imgView = UIImageView()
        let img = UIImage(named: "동백꽃.jpeg")
        imgView.image = img
-       imgView.contentMode = .scaleAspectFill
+       imgView.contentMode = .scaleAspectFit
        return imgView
     }()
     
@@ -23,6 +23,7 @@ class VideoCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         addSubview(imgView)
         setupAutoLayout()
+        imgView.backgroundColor = .lightGray
     }
     
     required init?(coder: NSCoder) {
@@ -36,8 +37,9 @@ extension VideoCell {
         imgView.snp.makeConstraints { (make) in
             make.top.equalTo(self.snp.top).offset(15)
             make.leading.equalTo(self.snp.leading).offset(15)
+            //make.trailing.equalTo(self.snp.trailing).offset(-15)
             make.bottom.equalTo(self.snp.bottom).offset(-15)
-            
+            make.width.equalTo(self.snp.width).dividedBy(2.5)
         }
     }
 }
