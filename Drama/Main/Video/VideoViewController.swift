@@ -16,6 +16,7 @@ class VideoViewController: UIViewController, IndicatorInfoProvider {
     
     //MARK: - Views Start
     var tableView = UITableView()
+    var sectionHeaderRemoved : Bool = false
     
     var sectionHeader : UIView = {
         let sectionHeader = UIView()
@@ -101,6 +102,39 @@ extension VideoViewController: UITableViewDelegate, UITableViewDataSource {
 //        return 200
 //    }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 180
+        return 100
+    }
+    
+    // Section Header 스크롤때마다 나타나고 사라지고 구현
+    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+
+        let y = targetContentOffset.pointee.y
+
+        if y > 0, sectionHeaderRemoved == false {
+            sectionHeaderRemoved = true
+            sectionHeader.isHidden = true
+        
+            leftButton.dismissDropDown()
+            leftButton.snp.removeConstraints()
+            
+            sectionHeader.snp.updateConstraints { (make) in
+                make.height.equalTo(0)
+            }
+            
+            UIView.animate(withDuration: 0.3) {
+                self.view.layoutIfNeeded()
+            }
+        } else if y == 0, sectionHeaderRemoved == true {
+            sectionHeaderRemoved = false
+            sectionHeader.isHidden = false
+            
+            sectionHeader.snp.updateConstraints { (make) in
+                make.height.equalTo(50)
+            }
+            
+            setupLeftDropDownButton()
+        }
+        
+        
     }
 }

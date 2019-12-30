@@ -13,7 +13,7 @@ class PostCell: UITableViewCell {
     
     private var imagePageViewCellID = "imagePageViewCellId"
     
-    //MARK: - 여기부터 Views
+    //MARK: - Views Start
     var cellView: UIView = {
        let cellView = UIView(frame: CGRect.zero)
        return cellView
@@ -39,7 +39,6 @@ class PostCell: UITableViewCell {
         return likeBtn
     }()
     
-    //TODO: Collection View와 연동
     var pageController: UIPageControl = {
        let pageCount = UIPageControl()
         pageCount.currentPage = 0
@@ -71,7 +70,7 @@ class PostCell: UITableViewCell {
         lbl.text = "편견에 갇힌 맹수 동백을 깨우는, 촌므파탈 황용식이의 폭격형 로맨스 사랑하면 다 돼! 이들을 둘러싼 생활밀착형 치정 로맨스 사랑 같은 소리하네."
         return lbl
     }()
-    //MARK: - 여가까지 Views
+    //MARK: - Views End
     
 
     

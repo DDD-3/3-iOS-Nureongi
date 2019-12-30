@@ -98,23 +98,24 @@ class DropDownButton: UIButton, DropDownDataSendable {
     }
     
     func dismissDropDown() {
-        
+        if isOpen == true {
         isOpen = false
         
-        NSLayoutConstraint.deactivate([self.height])
-        self.height.constant = 0
-        NSLayoutConstraint.activate([self.height])
+            NSLayoutConstraint.deactivate([self.height])
+            self.height.constant = 0
+            NSLayoutConstraint.activate([self.height])
                
-        UIView.animate(withDuration: 0.5,
-                       delay: 0,
-                       usingSpringWithDamping: 0.5,
-                       initialSpringVelocity: 0.5,
-                       options: .curveEaseInOut,
-                       animations: {
-                        self.dropView.center.y -= self.dropView.frame.height / 2
-                        self.dropView.layoutIfNeeded()
-                       },
-                       completion: nil)
+            UIView.animate(withDuration: 0.5,
+                           delay: 0,
+                           usingSpringWithDamping: 0.5,
+                           initialSpringVelocity: 0.5,
+                           options: .curveEaseInOut,
+                           animations: {
+                            self.dropView.center.y -= self.dropView.frame.height / 2
+                            self.dropView.layoutIfNeeded()
+                           },
+                           completion: nil)
+        }
     }
    
 }

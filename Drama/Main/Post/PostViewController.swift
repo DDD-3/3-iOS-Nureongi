@@ -14,6 +14,8 @@ class PostViewController: UIViewController, IndicatorInfoProvider {
     
     let postCellID = "postCell"
     
+    
+     //MARK: - Views Start
     var tableView = UITableView()
     var sectionHeaderRemoved: Bool = false
     
@@ -37,6 +39,7 @@ class PostViewController: UIViewController, IndicatorInfoProvider {
         rightBtn.setTitleColor(.black, for: .normal)
         return rightBtn
     }()
+     //MARK: - Views End
     
     func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
         return IndicatorInfo(title: "POST")
@@ -124,6 +127,9 @@ extension PostViewController: UITableViewDelegate, UITableViewDataSource {
             sectionHeaderRemoved = true
             sectionHeader.isHidden = true
             
+            rightButton.dismissDropDown()
+            leftButton.dismissDropDown()
+            
             rightButton.snp.removeConstraints()
             leftButton.snp.removeConstraints()
             
@@ -131,7 +137,7 @@ extension PostViewController: UITableViewDelegate, UITableViewDataSource {
                 make.height.equalTo(0)
             }
             
-            UIView.animate(withDuration: 0.5) {
+            UIView.animate(withDuration: 0.3) {
                 self.view.layoutIfNeeded()
             }
         } else if y == 0, sectionHeaderRemoved == true {

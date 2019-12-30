@@ -63,7 +63,7 @@ extension UpperTabBarRootViewController {
 
          // Sets the height and colour of the slider bar of the selected pager tab
          settings.style.selectedBarHeight = 3.0
-        settings.style.selectedBarBackgroundColor = .orange
+         settings.style.selectedBarBackgroundColor = .orange
          buttonBarView.selectedBar.backgroundColor = settings.style.selectedBarBackgroundColor
         
          // Changing item text color on swipe
