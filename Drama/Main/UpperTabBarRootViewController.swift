@@ -32,9 +32,9 @@ class UpperTabBarRootViewController: ButtonBarPagerTabStripViewController {
     override func viewControllers(for pagerTabStripController: PagerTabStripViewController) -> [UIViewController] {
 
          let child1 = self.storyboard?.instantiateViewController(withIdentifier: "Home") as! HomeViewController
-         let child2 = self.storyboard?.instantiateViewController(withIdentifier: "Rating") as! RatingViewController
-         let child3 = self.storyboard?.instantiateViewController(withIdentifier: "Post") as! PostViewController
         
+         let child2 = RatingViewController()
+         let child3 = PostViewController()
          let child4 = VideoViewController()
 
          return [child1, child2, child3, child4]
