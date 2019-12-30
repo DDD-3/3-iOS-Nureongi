@@ -8,6 +8,7 @@
 
 import UIKit
 import XLPagerTabStrip
+import Charts
 
 class RatingViewController: UIViewController, IndicatorInfoProvider {
     //MARK: - Views Start
