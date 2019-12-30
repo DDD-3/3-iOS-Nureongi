@@ -16,6 +16,7 @@
 		3337750323817B75006946A4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3337750123817B75006946A4 /* LaunchScreen.storyboard */; };
 		A04C193D23B8964000712ADF /* VideoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04C193C23B8964000712ADF /* VideoCell.swift */; };
 		A04C193F23B89DEE00712ADF /* 드라마.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = A04C193E23B89DEE00712ADF /* 드라마.jpeg */; };
+		A04C198823BA0A9E00712ADF /* ChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04C198723BA0A9E00712ADF /* ChartView.swift */; };
 		A060216223B5C2E00033549A /* DropDownButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A060216123B5C2E00033549A /* DropDownButton.swift */; };
 		A060216423B5C3FD0033549A /* DropDownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A060216323B5C3FD0033549A /* DropDownView.swift */; };
 		A060216723B5CB240033549A /* DropDownDataSendable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A060216623B5CB240033549A /* DropDownDataSendable.swift */; };
@@ -41,6 +42,7 @@
 		769B6AA2D7BCE491FA87F782 /* Pods-Drama.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Drama.release.xcconfig"; path = "Target Support Files/Pods-Drama/Pods-Drama.release.xcconfig"; sourceTree = "<group>"; };
 		A04C193C23B8964000712ADF /* VideoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCell.swift; sourceTree = "<group>"; };
 		A04C193E23B89DEE00712ADF /* 드라마.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "드라마.jpeg"; sourceTree = "<group>"; };
+		A04C198723BA0A9E00712ADF /* ChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartView.swift; sourceTree = "<group>"; };
 		A060216123B5C2E00033549A /* DropDownButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownButton.swift; sourceTree = "<group>"; };
 		A060216323B5C3FD0033549A /* DropDownView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownView.swift; sourceTree = "<group>"; };
 		A060216623B5CB240033549A /* DropDownDataSendable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownDataSendable.swift; sourceTree = "<group>"; };
@@ -115,6 +117,14 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		A04C198623BA0A7400712ADF /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A04C198723BA0A9E00712ADF /* ChartView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		A060215F23B5C2BC0033549A /* Service */ = {
 			isa = PBXGroup;
 			children = (
@@ -175,6 +185,7 @@
 		A0A6DEAD23ADE7FE00FA3F3F /* Rating */ = {
 			isa = PBXGroup;
 			children = (
+				A04C198623BA0A7400712ADF /* View */,
 				A0A6DEA723ADA89F00FA3F3F /* RatingViewController.swift */,
 			);
 			path = Rating;
@@ -327,6 +338,7 @@
 				A060216223B5C2E00033549A /* DropDownButton.swift in Sources */,
 				A060216423B5C3FD0033549A /* DropDownView.swift in Sources */,
 				A0DB11B723B7985400CB20D1 /* VideoViewController.swift in Sources */,
+				A04C198823BA0A9E00712ADF /* ChartView.swift in Sources */,
 				A0A6DEAA23ADB55600FA3F3F /* PostViewController.swift in Sources */,
 				333774FB23817B73006946A4 /* UpperTabBarRootViewController.swift in Sources */,
 				A0A6DEA823ADA89F00FA3F3F /* RatingViewController.swift in Sources */,
