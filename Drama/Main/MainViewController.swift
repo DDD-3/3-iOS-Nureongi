@@ -11,9 +11,11 @@ import UIKit
 class MainViewController: UIViewController {
     var imgArr = (1...6).map{UIImage.init(named: "\($0)")}
     var subscribeDataSource = SubscribeDataSource()
+    var hotDataSource = HotDataSource()
     
     @IBOutlet var posterCollectionView: UICollectionView!
     @IBOutlet var subscribeCollectionView: UICollectionView!
+    @IBOutlet var hotCollectionView: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +36,9 @@ class MainViewController: UIViewController {
         subscribeCollectionView.delegate = subscribeDataSource
         subscribeCollectionView.dataSource = subscribeDataSource
         subscribeCollectionView.collectionViewLayout = subscribeLayout
+        
+        hotCollectionView.delegate = hotDataSource
+        hotCollectionView.dataSource = hotDataSource
     }
 }
 
