@@ -14,4 +14,9 @@ extension UIColor {
         return UIColor.init(displayP3Red: red/255, green: green/255, blue: blue/255, alpha: alpha)
     }
     
+    static var naviColor: UIColor {
+        //return UIColor.rgb(red: 230, green: 50, blue: 50, alpha: 1.0)
+        return UIColor.lightGray
+    }
+    
 }

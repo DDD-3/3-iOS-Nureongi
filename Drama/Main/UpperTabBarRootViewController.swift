@@ -44,10 +44,10 @@ class UpperTabBarRootViewController: ButtonBarPagerTabStripViewController {
 // MARK: - 상단 탭바 커스터마이징
 extension UpperTabBarRootViewController {
     private func configureButtonBar() {
-        btnBar.backgroundColor = UIColor.rgb(red: 230, green: 50, blue: 50, alpha: 1.0)
+        btnBar.backgroundColor = UIColor.naviColor
          // Sets the background colour of the pager strip and the pager strip item
-         settings.style.buttonBarBackgroundColor = UIColor.rgb(red: 230, green: 50, blue: 50, alpha: 1.0)
-         settings.style.buttonBarItemBackgroundColor = UIColor.rgb(red: 230, green: 50, blue: 50, alpha: 1.0)
+         settings.style.buttonBarBackgroundColor = UIColor.naviColor
+         settings.style.buttonBarItemBackgroundColor = UIColor.naviColor
         
 
          // Sets the pager strip item font and font color
@@ -64,7 +64,7 @@ extension UpperTabBarRootViewController {
          // Sets the height and colour of the slider bar of the selected pager tab
          settings.style.selectedBarHeight = 3.0
          settings.style.selectedBarBackgroundColor = .white
-         settings.style.buttonBarMinimumLineSpacing = CGFloat(0)
+         settings.style.buttonBarMinimumLineSpacing = 0
          settings.style.buttonBarMinimumInteritemSpacing = 0
          buttonBarView.selectedBar.backgroundColor = settings.style.selectedBarBackgroundColor
     
