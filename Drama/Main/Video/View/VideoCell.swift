@@ -16,7 +16,8 @@ class VideoCell: UITableViewCell {
        let imgView = UIImageView()
        let img = UIImage(named: "드라마.jpeg")
        imgView.image = img
-       imgView.contentMode = .scaleToFill
+       imgView.contentMode = .scaleAspectFill
+       imgView.clipsToBounds = true
        return imgView
     }()
     
@@ -40,12 +41,8 @@ class VideoCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        addSubview(imgView)
-        addSubview(title)
-        addSubview(owner)
-        
+     
         setupAutoLayout()
-        imgView.backgroundColor = .lightGray
     }
     
     required init?(coder: NSCoder) {
@@ -56,6 +53,11 @@ class VideoCell: UITableViewCell {
 //MARK: - UI AutoLayout
 extension VideoCell {
     private func setupAutoLayout() {
+        
+        addSubview(imgView)
+        addSubview(title)
+        addSubview(owner)
+        
         imgView.snp.makeConstraints { (make) in
             make.top.equalTo(self.snp.top).offset(5)
             make.leading.equalTo(self.snp.leading).offset(5)

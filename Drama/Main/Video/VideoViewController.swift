@@ -39,11 +39,6 @@ class VideoViewController: UIViewController, IndicatorInfoProvider {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(VideoCell.self, forCellReuseIdentifier: videoCellID)
-        //tableView.rowHeight = UITableView.automaticDimension
-        
-        self.view.addSubview(tableView)
-        self.view.addSubview(sectionHeader)
-        sectionHeader.addSubview(leftButton)
         
         setupAutoLayout()
     }
@@ -59,6 +54,11 @@ class VideoViewController: UIViewController, IndicatorInfoProvider {
 
 extension VideoViewController {
     private func setupAutoLayout() {
+        
+        self.view.addSubview(tableView)
+        self.view.addSubview(sectionHeader)
+        sectionHeader.addSubview(leftButton)
+        
         sectionHeader.snp.makeConstraints { (make) in
             make.top.leading.trailing.equalTo(self.view.safeAreaLayoutGuide)
             make.bottom.equalTo(self.tableView.snp.top)
@@ -98,9 +98,6 @@ extension VideoViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
-//    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-//        return 200
-//    }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 100
     }

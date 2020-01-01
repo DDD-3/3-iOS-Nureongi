@@ -76,15 +76,9 @@ class PostCell: UITableViewCell {
     
     
     
-    //MARK: - 초기화구문
+    //MARK: - Initailizer
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        
-        self.addSubview(cellView)
-        cellView.addSubview(thumbnail)
-        self.addSubview(stackView)
-        self.addSubview(titleLabel)
-        self.addSubview(descriptionLabel)
         
         thumbnail.dataSource = self
         thumbnail.delegate = self
@@ -104,6 +98,13 @@ class PostCell: UITableViewCell {
 //MARK: - UI AutoLayout
 extension PostCell {
     private func autoLayoutSetup() {
+        
+        self.addSubview(cellView)
+        cellView.addSubview(thumbnail)
+        self.addSubview(stackView)
+        self.addSubview(titleLabel)
+        self.addSubview(descriptionLabel)
+        
         cellView.snp.makeConstraints { (make) in
             //make.top.leading.trailing.equalToSuperview().offset(15)
             make.top.equalTo(self.snp.top).offset(15)
@@ -114,7 +115,7 @@ extension PostCell {
         }
         
         stackView.snp.makeConstraints { (make) in
-            make.top.equalTo(thumbnail.snp.bottom).offset(20)
+            make.top.equalTo(thumbnail.snp.bottom).offset(10)
             make.leading.equalTo(self.snp.leading).offset(15)
             make.trailing.equalTo(self.snp.trailing).offset(-15)
         }

@@ -46,18 +46,14 @@ class PostViewController: UIViewController, IndicatorInfoProvider {
     }
     
 
+    //MARK: - View LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(PostCell.self, forCellReuseIdentifier: postCellID)
         tableView.rowHeight = UITableView.automaticDimension
-        
-        
-        view.addSubview(tableView)
-        view.addSubview(sectionHeader)
-        sectionHeader.addSubview(leftButton)
-        sectionHeader.addSubview(rightButton)
         
         setupTableView()
     }
@@ -68,6 +64,12 @@ class PostViewController: UIViewController, IndicatorInfoProvider {
 
 extension PostViewController {
     private func setupTableView() {
+        
+        view.addSubview(tableView)
+        view.addSubview(sectionHeader)
+        sectionHeader.addSubview(leftButton)
+        sectionHeader.addSubview(rightButton)
+        
         sectionHeader.snp.makeConstraints { (make) in
             make.top.leading.trailing.equalTo(self.view.safeAreaLayoutGuide)
             make.bottom.equalTo(self.tableView.snp.top)
@@ -155,3 +157,5 @@ extension PostViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
 }
+
+

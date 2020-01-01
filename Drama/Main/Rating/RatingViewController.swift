@@ -39,21 +39,13 @@ class RatingViewController: UIViewController, IndicatorInfoProvider {
         let my = ChartView(type: .my)
         return my
     }()
-        
-    //MARK: - Views End
+
 
     
     
-
+    //MARK: - View LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.view.addSubview(scrollView)
-        self.scrollView.addSubview(contentView)
-        
-        self.contentView.addSubview(averageGrade)
-        self.contentView.addSubview(episodeGrade)
-        self.contentView.addSubview(myGrade)
         
         setupAutoLayout()
     }
@@ -67,6 +59,14 @@ class RatingViewController: UIViewController, IndicatorInfoProvider {
 
 extension RatingViewController {
     private func setupAutoLayout() {
+        
+        self.view.addSubview(scrollView)
+        self.scrollView.addSubview(contentView)
+        
+        self.contentView.addSubview(averageGrade)
+        self.contentView.addSubview(episodeGrade)
+        self.contentView.addSubview(myGrade)
+        
         scrollView.snp.makeConstraints { (make) in
             make.top.leading.trailing.bottom.equalTo(self.view.safeAreaLayoutGuide)
         }
@@ -98,8 +98,4 @@ extension RatingViewController {
  
 }
 
-//MARK: - TableView
 
-extension RatingViewController {
-    
-}
