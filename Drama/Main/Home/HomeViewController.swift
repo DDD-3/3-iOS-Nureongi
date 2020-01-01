@@ -24,7 +24,6 @@ class HomeViewController: UIViewController, IndicatorInfoProvider {
         return IndicatorInfo(title: "HOME")
     }
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
         

@@ -9,7 +9,7 @@
 import UIKit
 import SnapKit
 
-class ImagePageViewCell: UICollectionViewCell {
+class ImagePageViewCell: BaseCollectionViewCell {
     
     //MARK: - Views Start
     var imgView: UIImageView = {
@@ -20,16 +20,9 @@ class ImagePageViewCell: UICollectionViewCell {
        return imgView
     }()
     
-    //MARK: - Initializer
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        
+    override func setupViews() {
         setupAutoLayout()
     }
-     
-     required init?(coder: NSCoder) {
-         fatalError()
-     }
 }
 
 

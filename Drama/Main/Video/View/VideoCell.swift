@@ -9,7 +9,7 @@
 import UIKit
 import SnapKit
 
-class VideoCell: UITableViewCell {
+class VideoCell: BaseTableViewCell {
 
     //MARK: - Views Start
     var imgView: UIImageView = {
@@ -37,16 +37,10 @@ class VideoCell: UITableViewCell {
         owner.font = .systemFont(ofSize: 12)
         return owner
     }()
-     //MARK: - Views End
     
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
-     
+     //MARK: - Setup Views
+    override func setupViews() {
         setupAutoLayout()
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("required init 에러")
     }
 }
 

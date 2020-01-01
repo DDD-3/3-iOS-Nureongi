@@ -9,7 +9,7 @@
 import UIKit
 import SnapKit
 
-class PostCell: UITableViewCell {
+class PostCell: BaseTableViewCell {
     
     private var imagePageViewCellID = "imagePageViewCellId"
     
@@ -77,19 +77,13 @@ class PostCell: UITableViewCell {
     
     
     //MARK: - Initailizer
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
-        
+    override func setupViews() {
         thumbnail.dataSource = self
         thumbnail.delegate = self
         thumbnail.register(ImagePageViewCell.self, forCellWithReuseIdentifier: imagePageViewCellID)
         thumbnail.isPagingEnabled = true
-   
+        
         autoLayoutSetup()
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError()
     }
 }
 

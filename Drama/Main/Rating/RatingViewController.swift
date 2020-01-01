@@ -40,9 +40,6 @@ class RatingViewController: UIViewController, IndicatorInfoProvider {
         return my
     }()
 
-
-    
-    
     //MARK: - View LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
