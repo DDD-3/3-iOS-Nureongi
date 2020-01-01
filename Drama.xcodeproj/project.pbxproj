@@ -28,6 +28,7 @@
 		A0A6DEA823ADA89F00FA3F3F /* RatingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A6DEA723ADA89F00FA3F3F /* RatingViewController.swift */; };
 		A0A6DEAA23ADB55600FA3F3F /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A6DEA923ADB55600FA3F3F /* PostViewController.swift */; };
 		A0DB11B723B7985400CB20D1 /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DB11B623B7985400CB20D1 /* VideoViewController.swift */; };
+		A0F4F5E423BCD9F000DD3CB3 /* UIColor + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F4F5E323BCD9F000DD3CB3 /* UIColor + Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,6 +56,7 @@
 		A0A6DEA723ADA89F00FA3F3F /* RatingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingViewController.swift; sourceTree = "<group>"; };
 		A0A6DEA923ADB55600FA3F3F /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		A0DB11B623B7985400CB20D1 /* VideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoViewController.swift; sourceTree = "<group>"; };
+		A0F4F5E323BCD9F000DD3CB3 /* UIColor + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor + Extension.swift"; sourceTree = "<group>"; };
 		CC0022D13A86D103646B717C /* Pods-Drama.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Drama.debug.xcconfig"; path = "Target Support Files/Pods-Drama/Pods-Drama.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -130,6 +132,7 @@
 		A060215F23B5C2BC0033549A /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				A0F4F5E223BCD9D600DD3CB3 /* Service Extension */,
 				A060216023B5C2C80033549A /* Service View */,
 			);
 			path = Service;
@@ -218,6 +221,14 @@
 				A0DB11B623B7985400CB20D1 /* VideoViewController.swift */,
 			);
 			path = Video;
+			sourceTree = "<group>";
+		};
+		A0F4F5E223BCD9D600DD3CB3 /* Service Extension */ = {
+			isa = PBXGroup;
+			children = (
+				A0F4F5E323BCD9F000DD3CB3 /* UIColor + Extension.swift */,
+			);
+			path = "Service Extension";
 			sourceTree = "<group>";
 		};
 		F00CEC3B9BFF0331AE5FCE0A /* Pods */ = {
@@ -355,6 +366,7 @@
 				A0A6DEA823ADA89F00FA3F3F /* RatingViewController.swift in Sources */,
 				A04C193D23B8964000712ADF /* VideoCell.swift in Sources */,
 				333774F723817B73006946A4 /* AppDelegate.swift in Sources */,
+				A0F4F5E423BCD9F000DD3CB3 /* UIColor + Extension.swift in Sources */,
 				A097416023BC6ED900F9F629 /* Post.swift in Sources */,
 				A060216723B5CB240033549A /* DropDownDataSendable.swift in Sources */,
 				333774F923817B73006946A4 /* SceneDelegate.swift in Sources */,
