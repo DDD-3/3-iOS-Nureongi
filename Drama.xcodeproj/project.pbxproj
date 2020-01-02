@@ -21,6 +21,8 @@
 		A060216423B5C3FD0033549A /* DropDownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A060216323B5C3FD0033549A /* DropDownView.swift */; };
 		A060216723B5CB240033549A /* DropDownDataSendable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A060216623B5CB240033549A /* DropDownDataSendable.swift */; };
 		A0699B5623B7423800DB4ECE /* 동백꽃.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = A0699B5523B7423800DB4ECE /* 동백꽃.jpeg */; };
+		A07408CC23BE2C7F00249AEE /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07408CB23BE2C7F00249AEE /* NetworkError.swift */; };
+		A07408CE23BE2CF500249AEE /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07408CD23BE2CF500249AEE /* NetworkManager.swift */; };
 		A07629D723B44E2100616EB3 /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07629D623B44E2100616EB3 /* PostCell.swift */; };
 		A07629DB23B4971B00616EB3 /* ImagePageViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07629DA23B4971B00616EB3 /* ImagePageViewCell.swift */; };
 		A097416023BC6ED900F9F629 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = A097415F23BC6ED900F9F629 /* Post.swift */; };
@@ -50,6 +52,8 @@
 		A060216323B5C3FD0033549A /* DropDownView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownView.swift; sourceTree = "<group>"; };
 		A060216623B5CB240033549A /* DropDownDataSendable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownDataSendable.swift; sourceTree = "<group>"; };
 		A0699B5523B7423800DB4ECE /* 동백꽃.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "동백꽃.jpeg"; sourceTree = "<group>"; };
+		A07408CB23BE2C7F00249AEE /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		A07408CD23BE2CF500249AEE /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		A07629D623B44E2100616EB3 /* PostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
 		A07629DA23B4971B00616EB3 /* ImagePageViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePageViewCell.swift; sourceTree = "<group>"; };
 		A097415F23BC6ED900F9F629 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
@@ -95,6 +99,7 @@
 		333774F523817B73006946A4 /* Drama */ = {
 			isa = PBXGroup;
 			children = (
+				A07408CA23BE2C5100249AEE /* Networking */,
 				A060215F23B5C2BC0033549A /* Service */,
 				A0A6DEAB23ADE7AE00FA3F3F /* Main */,
 				333774F623817B73006946A4 /* AppDelegate.swift */,
@@ -157,6 +162,15 @@
 				A060216323B5C3FD0033549A /* DropDownView.swift */,
 			);
 			path = DropDownView;
+			sourceTree = "<group>";
+		};
+		A07408CA23BE2C5100249AEE /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				A07408CB23BE2C7F00249AEE /* NetworkError.swift */,
+				A07408CD23BE2CF500249AEE /* NetworkManager.swift */,
+			);
+			path = Networking;
 			sourceTree = "<group>";
 		};
 		A07629D523B44E0000616EB3 /* View */ = {
@@ -368,6 +382,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A07408CE23BE2CF500249AEE /* NetworkManager.swift in Sources */,
 				A060216223B5C2E00033549A /* DropDownButton.swift in Sources */,
 				A060216423B5C3FD0033549A /* DropDownView.swift in Sources */,
 				A0DB11B723B7985400CB20D1 /* VideoViewController.swift in Sources */,
@@ -383,6 +398,7 @@
 				A060216723B5CB240033549A /* DropDownDataSendable.swift in Sources */,
 				333774F923817B73006946A4 /* SceneDelegate.swift in Sources */,
 				A07629DB23B4971B00616EB3 /* ImagePageViewCell.swift in Sources */,
+				A07408CC23BE2C7F00249AEE /* NetworkError.swift in Sources */,
 				A07629D723B44E2100616EB3 /* PostCell.swift in Sources */,
 				A0A6DEA623ADA88400FA3F3F /* HomeViewController.swift in Sources */,
 			);
