@@ -49,48 +49,24 @@ class ChartView: UIView {
         fatalError("required method 에러")
     }
 
-    private func chartCheck(type: ChartType) -> ChartViewBase {
-        switch type {
-            case .average:
-                let bar = BarChartView()
-                barChartUpdate(barChart: bar)
-                return bar
-            case .episode, .my:
-                let line = LineChartView()
-                lineChartUpdate(lineChart: line)
-                return line
-            }
-    }
-    
-    
 }
 
-
-//MARK: - UI AutoLayout
-extension ChartView {
-    private func setupAutoLayout() {
-        
-        addSubview(title)
-        addSubview(chartView)
-        
-        title.snp.makeConstraints { (make) in
-            make.leading.trailing.equalToSuperview().offset(20)
-            make.top.equalToSuperview().offset(25)
-        }
-        
-        chartView.snp.makeConstraints { (make) in
-            make.leading.equalToSuperview().offset(20)
-            make.trailing.equalToSuperview().offset(-20)
-            make.bottom.equalToSuperview()
-            make.top.equalTo(title.snp.bottom).offset(20)
-        }
-        
-    }
-    
-}
 
 //MARK: - ChartView Setting Data
 extension ChartView {
+    
+      private func chartCheck(type: ChartType) -> ChartViewBase {
+                 switch type {
+                     case .average:
+                         let bar = BarChartView()
+                         barChartUpdate(barChart: bar)
+                         return bar
+                     case .episode, .my:
+                         let line = LineChartView()
+                         lineChartUpdate(lineChart: line)
+                         return line
+                     }
+      }
       private func barChartUpdate(barChart: BarChartView) {
            let entry1 = BarChartDataEntry(x: 0, y: Double(3.5))
            let entry2 = BarChartDataEntry(x: 1, y: Double(4.5))
@@ -137,8 +113,9 @@ extension ChartView {
            lineChart.isUserInteractionEnabled = false
            
            lineChart.legend.enabled = false
-    
        }
+    
+    
 }
 
 //MARK: - BarLineChartView Settings
@@ -164,4 +141,29 @@ extension BarLineChartViewBase {
         self.rightAxis.drawLabelsEnabled = false
         self.leftAxis.axisMinimum = 0
     }
+}
+
+
+
+//MARK: - UI AutoLayout
+extension ChartView {
+    private func setupAutoLayout() {
+        
+        addSubview(title)
+        addSubview(chartView)
+        
+        title.snp.makeConstraints { (make) in
+            make.leading.trailing.equalToSuperview().offset(20)
+            make.top.equalToSuperview().offset(25)
+        }
+        
+        chartView.snp.makeConstraints { (make) in
+            make.leading.equalToSuperview().offset(20)
+            make.trailing.equalToSuperview().offset(-20)
+            make.bottom.equalToSuperview()
+            make.top.equalTo(title.snp.bottom).offset(20)
+        }
+        
+    }
+    
 }
