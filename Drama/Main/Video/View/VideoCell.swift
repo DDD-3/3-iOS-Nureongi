@@ -44,6 +44,11 @@ class VideoCell: BaseTableViewCell {
     }
 }
 
+
+
+
+
+
 //MARK: - UI AutoLayout
 extension VideoCell {
     private func setupAutoLayout() {

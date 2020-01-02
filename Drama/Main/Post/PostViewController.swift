@@ -60,6 +60,49 @@ class PostViewController: UIViewController, IndicatorInfoProvider {
     
 }
 
+//MARK: - TableView DataSource & Delegate
+
+extension PostViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 6
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: postCellID, for: indexPath)  as! PostCell
+        cell.selectionStyle = .none
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 300
+    }
+   
+    // Section Header 스크롤때마다 나타나고 사라지고 구현
+    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+
+        let y = targetContentOffset.pointee.y
+
+        if y > 0, sectionHeaderRemoved == false {
+            sectionRemove()
+        } else if y == 0, sectionHeaderRemoved == true {
+            sectionRelease()
+        }
+    }
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
 //MARK: - UI AutoLayout
 
 extension PostViewController {
@@ -100,62 +143,34 @@ extension PostViewController {
             make.width.equalTo(70)
         }
     }
-}
-
-//MARK: - TableView DataSource & Delegate
-
-extension PostViewController: UITableViewDelegate, UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 6
-    }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: postCellID, for: indexPath)  as! PostCell
-        cell.selectionStyle = .none
+    private func sectionRemove() {
+        sectionHeaderRemoved = true
+        sectionHeader.isHidden = true
         
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 300
-    }
-   
-    // Section Header 스크롤때마다 나타나고 사라지고 구현
-    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
-
-        let y = targetContentOffset.pointee.y
-
-        if y > 0, sectionHeaderRemoved == false {
-            sectionHeaderRemoved = true
-            sectionHeader.isHidden = true
-            
-            rightButton.dismissDropDown()
-            leftButton.dismissDropDown()
-            
-            rightButton.snp.removeConstraints()
-            leftButton.snp.removeConstraints()
-            
-            sectionHeader.snp.updateConstraints { (make) in
-                make.height.equalTo(0)
-            }
-            
-            UIView.animate(withDuration: 0.3) {
-                self.view.layoutIfNeeded()
-            }
-        } else if y == 0, sectionHeaderRemoved == true {
-            sectionHeaderRemoved = false
-            sectionHeader.isHidden = false
-            
-            sectionHeader.snp.updateConstraints { (make) in
-                make.height.equalTo(50)
-            }
-            
-            setupLeftRightDropDownButton()
+        rightButton.dismissDropDown()
+        leftButton.dismissDropDown()
+        
+        rightButton.snp.removeConstraints()
+        leftButton.snp.removeConstraints()
+        
+        sectionHeader.snp.updateConstraints { (make) in
+            make.height.equalTo(0)
         }
         
-        
+        UIView.animate(withDuration: 0.3) {
+            self.view.layoutIfNeeded()
+        }
     }
     
+    private func sectionRelease() {
+        sectionHeaderRemoved = false
+        sectionHeader.isHidden = false
+        
+        sectionHeader.snp.updateConstraints { (make) in
+            make.height.equalTo(50)
+        }
+        
+        setupLeftRightDropDownButton()
+    }
 }
-
-

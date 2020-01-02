@@ -70,11 +70,9 @@ class PostCell: BaseTableViewCell {
         lbl.text = "편견에 갇힌 맹수 동백을 깨우는, 촌므파탈 황용식이의 폭격형 로맨스 사랑하면 다 돼! 이들을 둘러싼 생활밀착형 치정 로맨스 사랑 같은 소리하네."
         return lbl
     }()
-    //MARK: - Views End
-    
 
     
-    
+
     
     //MARK: - Initailizer
     override func setupViews() {
@@ -86,6 +84,44 @@ class PostCell: BaseTableViewCell {
         autoLayoutSetup()
     }
 }
+
+
+
+//MARK: - UICollectionView 
+
+extension PostCell: UICollectionViewDataSource, UICollectionViewDelegate,UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 3
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: imagePageViewCellID, for: indexPath) as! ImagePageViewCell
+        
+        return cell
+    }
+    
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        layoutIfNeeded()
+        return CGSize(width: self.cellView.bounds.width, height: self.cellView.bounds.height)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
+    }
+    
+    // 페이지 컨트롤과 스크롤뷰 연동
+    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+        
+        let x = targetContentOffset.pointee.x
+        
+        pageController.currentPage = Int(x / self.cellView.frame.width)
+        
+    }
+}
+
+
+
 
 
 
@@ -137,39 +173,5 @@ extension PostCell {
         thumbnail.snp.makeConstraints { (make) in
             make.top.leading.trailing.bottom.equalToSuperview()
         }
-    }
-}
-
-
-//MARK: - UICollectionView 
-
-extension PostCell: UICollectionViewDataSource, UICollectionViewDelegate,UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 3
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: imagePageViewCellID, for: indexPath) as! ImagePageViewCell
-        
-        return cell
-    }
-    
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        layoutIfNeeded()
-        return CGSize(width: self.cellView.bounds.width, height: self.cellView.bounds.height)
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 0
-    }
-    
-    // 페이지 컨트롤과 스크롤뷰 연동
-    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
-        
-        let x = targetContentOffset.pointee.x
-        
-        pageController.currentPage = Int(x / self.cellView.frame.width)
-        
     }
 }

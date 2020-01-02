@@ -13,10 +13,10 @@ import SnapKit
 class VideoViewController: UIViewController, IndicatorInfoProvider {
     
     let videoCellID = "videoCell"
+    var sectionHeaderRemoved : Bool = false
     
     //MARK: - Views Start
     var tableView = UITableView()
-    var sectionHeaderRemoved : Bool = false
     
     var sectionHeader : UIView = {
         let sectionHeader = UIView()
@@ -30,9 +30,9 @@ class VideoViewController: UIViewController, IndicatorInfoProvider {
           leftBtn.setTitleColor(.black, for: .normal)
           return leftBtn
     }()
-    //MARK: - Views End
     
     
+    //MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -49,6 +49,46 @@ class VideoViewController: UIViewController, IndicatorInfoProvider {
 
 
 }
+
+
+
+//MARK: - TableView
+
+extension VideoViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 10
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: videoCellID, for: indexPath)
+         
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100
+    }
+    
+    // Section Header 스크롤때마다 나타나고 사라지고 구현
+    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+
+        let y = targetContentOffset.pointee.y
+
+        if y > 0, sectionHeaderRemoved == false {
+            sectionRemove()
+        } else if y == 0, sectionHeaderRemoved == true {
+            sectionRelease()
+        }
+    }
+}
+
+
+
+
+
+
+
+
 
 //MARK: - UI AutoLayout
 
@@ -83,55 +123,31 @@ extension VideoViewController {
             make.width.equalTo(70)
         }
     }
-}
-
-//MARK: - TableView
-
-extension VideoViewController: UITableViewDelegate, UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
-    }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: videoCellID, for: indexPath)
-         
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100
-    }
-    
-    // Section Header 스크롤때마다 나타나고 사라지고 구현
-    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
-
-        let y = targetContentOffset.pointee.y
-
-        if y > 0, sectionHeaderRemoved == false {
-            sectionHeaderRemoved = true
-            sectionHeader.isHidden = true
+    private func sectionRemove() {
+        sectionHeaderRemoved = true
+        sectionHeader.isHidden = true
         
-            leftButton.dismissDropDown()
-            leftButton.snp.removeConstraints()
+        leftButton.dismissDropDown()
+        leftButton.snp.removeConstraints()
             
-            sectionHeader.snp.updateConstraints { (make) in
-                make.height.equalTo(0)
-            }
+        sectionHeader.snp.updateConstraints { (make) in
+            make.height.equalTo(0)
+        }
             
-            UIView.animate(withDuration: 0.3) {
-                self.view.layoutIfNeeded()
-            }
-        } else if y == 0, sectionHeaderRemoved == true {
-            sectionHeaderRemoved = false
-            sectionHeader.isHidden = false
-            
-            sectionHeader.snp.updateConstraints { (make) in
-                make.height.equalTo(50)
-            }
-            
-            setupLeftDropDownButton()
+        UIView.animate(withDuration: 0.3) {
+            self.view.layoutIfNeeded()
+        }
+    }
+    
+    private func sectionRelease(){
+        sectionHeaderRemoved = false
+        sectionHeader.isHidden = false
+        
+        sectionHeader.snp.updateConstraints { (make) in
+            make.height.equalTo(50)
         }
         
-        
+        setupLeftDropDownButton()
     }
 }
