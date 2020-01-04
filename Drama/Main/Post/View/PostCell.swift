@@ -9,11 +9,11 @@
 import UIKit
 import SnapKit
 
-class PostCell: UITableViewCell {
+class PostCell: BaseTableViewCell {
     
-    private var imagePageViewCellId = "imagePageViewCellId"
+    private var imagePageViewCellID = "imagePageViewCellId"
     
-    // 컨테이너 뷰
+    //MARK: - Views Start
     var cellView: UIView = {
        let cellView = UIView(frame: CGRect.zero)
        return cellView
@@ -39,13 +39,14 @@ class PostCell: UITableViewCell {
         return likeBtn
     }()
     
-    //TODO: Collection View와 연동
     var pageController: UIPageControl = {
        let pageCount = UIPageControl()
         pageCount.currentPage = 0
         pageCount.currentPageIndicatorTintColor = .red
         pageCount.pageIndicatorTintColor = .gray
         pageCount.numberOfPages = 3
+        pageCount.hidesForSinglePage = true
+        pageCount.isUserInteractionEnabled = false
         return pageCount
     }()
     
@@ -69,10 +70,64 @@ class PostCell: UITableViewCell {
         lbl.text = "편견에 갇힌 맹수 동백을 깨우는, 촌므파탈 황용식이의 폭격형 로맨스 사랑하면 다 돼! 이들을 둘러싼 생활밀착형 치정 로맨스 사랑 같은 소리하네."
         return lbl
     }()
+
+    
+
+    
+    //MARK: - Initailizer
+    override func setupViews() {
+        thumbnail.dataSource = self
+        thumbnail.delegate = self
+        thumbnail.register(ImagePageViewCell.self, forCellWithReuseIdentifier: imagePageViewCellID)
+        thumbnail.isPagingEnabled = true
+        
+        autoLayoutSetup()
+    }
+}
+
+
+
+//MARK: - UICollectionView 
+
+extension PostCell: UICollectionViewDataSource, UICollectionViewDelegate,UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 3
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: imagePageViewCellID, for: indexPath) as! ImagePageViewCell
+        
+        return cell
+    }
     
     
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        layoutIfNeeded()
+        return CGSize(width: self.cellView.bounds.width, height: self.cellView.bounds.height)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
+    }
+    
+    // 페이지 컨트롤과 스크롤뷰 연동
+    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+        
+        let x = targetContentOffset.pointee.x
+        
+        pageController.currentPage = Int(x / self.cellView.frame.width)
+        
+    }
+}
+
+
+
+
+
+
+//MARK: - UI AutoLayout
+extension PostCell {
+    private func autoLayoutSetup() {
         
         self.addSubview(cellView)
         cellView.addSubview(thumbnail)
@@ -80,24 +135,6 @@ class PostCell: UITableViewCell {
         self.addSubview(titleLabel)
         self.addSubview(descriptionLabel)
         
-        thumbnail.dataSource = self
-        thumbnail.delegate = self
-        thumbnail.register(ImagePageViewCell.self, forCellWithReuseIdentifier: imagePageViewCellId)
-        thumbnail.isPagingEnabled = true
-   
-        autoLayoutSetup()
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError()
-    }
-}
-
-
-
-//MARK: - UI AutoLayout
-extension PostCell {
-    private func autoLayoutSetup() {
         cellView.snp.makeConstraints { (make) in
             //make.top.leading.trailing.equalToSuperview().offset(15)
             make.top.equalTo(self.snp.top).offset(15)
@@ -108,7 +145,7 @@ extension PostCell {
         }
         
         stackView.snp.makeConstraints { (make) in
-            make.top.equalTo(thumbnail.snp.bottom).offset(20)
+            make.top.equalTo(thumbnail.snp.bottom).offset(10)
             make.leading.equalTo(self.snp.leading).offset(15)
             make.trailing.equalTo(self.snp.trailing).offset(-15)
         }
@@ -130,35 +167,11 @@ extension PostCell {
             make.top.equalTo(titleLabel.snp.bottom).offset(5)
             make.leading.equalTo(self.snp.leading).offset(15)
             make.trailing.equalTo(self.snp.trailing).offset(-15)
+            make.bottom.equalTo(self.snp.bottom).offset(-10)
         }
         
         thumbnail.snp.makeConstraints { (make) in
             make.top.leading.trailing.bottom.equalToSuperview()
         }
-    }
-}
-
-
-//MARK: - UICollectionView 
-
-extension PostCell: UICollectionViewDataSource, UICollectionViewDelegate,UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 3
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: imagePageViewCellId, for: indexPath)
-        
-        return cell
-    }
-    
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        layoutIfNeeded()
-        return CGSize(width: self.cellView.bounds.width, height: self.cellView.bounds.height)
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 0
     }
 }

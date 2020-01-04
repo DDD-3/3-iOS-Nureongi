@@ -1,24 +1,30 @@
 PODS:
   - Alamofire (5.0.0-rc.3)
+  - Charts (3.4.0):
+    - Charts/Core (= 3.4.0)
+  - Charts/Core (3.4.0)
   - SnapKit (5.0.1)
   - XLPagerTabStrip (9.0.0)
 
 DEPENDENCIES:
   - Alamofire (~> 5.0.0-rc.3)
+  - Charts
   - SnapKit (~> 5.0.0)
   - XLPagerTabStrip (~> 9.0)
 
 SPEC REPOS:
   trunk:
     - Alamofire
+    - Charts
     - SnapKit
     - XLPagerTabStrip
 
 SPEC CHECKSUMS:
   Alamofire: ca8c0de6906873be89d6deec5c8de279e00bf872
+  Charts: 74c9f256eaf0460c0c416522d1cf8c634ea6b286
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
   XLPagerTabStrip: 61c57fd61f611ee5f01ff1495ad6fbee8bf496c5
 
-PODFILE CHECKSUM: 7baceccba01c18cd71938e1e005664d113b9235c
+PODFILE CHECKSUM: 065dd43790eb6e63b56a43c2f27af4eb8649faac
 
 COCOAPODS: 1.8.3
