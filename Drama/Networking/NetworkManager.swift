@@ -55,3 +55,15 @@ struct NetworkManager {
         task.resume()
     }
 }
+
+
+/*
+ NetworkManager.shared.fetchJson(url: url, type: 모델.self) { (result) in
+                switch result {
+                case .success(let model):
+                    self.list =  model
+                case .failure(let err):
+                    print(err)
+                }
+}
+ */
