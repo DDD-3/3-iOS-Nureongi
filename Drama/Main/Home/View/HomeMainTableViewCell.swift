@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HomeMainTableViewCell: UITableViewCell {
+class HomeMainTableViewCell: BaseTableViewCell {
     static let ID = "HomeMainTableViewCell"
     
     let posterImageView: UIImageView = {
@@ -56,15 +56,11 @@ class HomeMainTableViewCell: UITableViewCell {
 //        // Configure the view for the selected state
 //    }
     
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
-        
+    override func setupViews() {
         viewArrangement()
     }
     
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+
     
     private func viewArrangement() {
         self.addSubview(posterImageView)
