@@ -39,6 +39,8 @@ class MainViewController: UIViewController {
         
         hotCollectionView.delegate = hotDataSource
         hotCollectionView.dataSource = hotDataSource
+        
+        
     }
 }
 
