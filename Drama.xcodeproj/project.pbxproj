@@ -19,6 +19,10 @@
 		333774FE23817B73006946A4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 333774FC23817B73006946A4 /* Main.storyboard */; };
 		3337750023817B75006946A4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 333774FF23817B75006946A4 /* Assets.xcassets */; };
 		3337750323817B75006946A4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3337750123817B75006946A4 /* LaunchScreen.storyboard */; };
+		33EF448D23BF7D4800A5A8E7 /* HomeMainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33EF448C23BF7D4800A5A8E7 /* HomeMainTableViewCell.swift */; };
+		33EF448F23BF9C7100A5A8E7 /* HotVideoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33EF448E23BF9C7100A5A8E7 /* HotVideoTableViewCell.swift */; };
+		33EF449123BFA2EF00A5A8E7 /* BasicInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33EF449023BFA2EF00A5A8E7 /* BasicInfoTableViewCell.swift */; };
+		33EF449323BFA7E500A5A8E7 /* CastTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33EF449223BFA7E500A5A8E7 /* CastTableViewCell.swift */; };
 		A07629D723B44E2100616EB3 /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07629D623B44E2100616EB3 /* PostCell.swift */; };
 		A07629DB23B4971B00616EB3 /* ImagePageViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A07629DA23B4971B00616EB3 /* ImagePageViewCell.swift */; };
 		A0A6DEA623ADA88400FA3F3F /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A6DEA523ADA88400FA3F3F /* HomeViewController.swift */; };
@@ -41,6 +45,10 @@
 		333774FF23817B75006946A4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3337750223817B75006946A4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3337750423817B75006946A4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		33EF448C23BF7D4800A5A8E7 /* HomeMainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMainTableViewCell.swift; sourceTree = "<group>"; };
+		33EF448E23BF9C7100A5A8E7 /* HotVideoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotVideoTableViewCell.swift; sourceTree = "<group>"; };
+		33EF449023BFA2EF00A5A8E7 /* BasicInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicInfoTableViewCell.swift; sourceTree = "<group>"; };
+		33EF449223BFA7E500A5A8E7 /* CastTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastTableViewCell.swift; sourceTree = "<group>"; };
 		769B6AA2D7BCE491FA87F782 /* Pods-Drama.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Drama.release.xcconfig"; path = "Target Support Files/Pods-Drama/Pods-Drama.release.xcconfig"; sourceTree = "<group>"; };
 		A07629D623B44E2100616EB3 /* PostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
 		A07629DA23B4971B00616EB3 /* ImagePageViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePageViewCell.swift; sourceTree = "<group>"; };
@@ -102,6 +110,17 @@
 			path = Drama;
 			sourceTree = "<group>";
 		};
+		33EF448B23BF7CDF00A5A8E7 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				33EF448C23BF7D4800A5A8E7 /* HomeMainTableViewCell.swift */,
+				33EF449023BFA2EF00A5A8E7 /* BasicInfoTableViewCell.swift */,
+				33EF449223BFA7E500A5A8E7 /* CastTableViewCell.swift */,
+				33EF448E23BF9C7100A5A8E7 /* HotVideoTableViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		80EBCBF1D3F1B7578136A253 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -138,6 +157,7 @@
 		A0A6DEAC23ADE7F500FA3F3F /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				33EF448B23BF7CDF00A5A8E7 /* View */,
 				A0A6DEA523ADA88400FA3F3F /* HomeViewController.swift */,
 			);
 			path = Home;
@@ -285,16 +305,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				A0A6DEAA23ADB55600FA3F3F /* PostViewController.swift in Sources */,
+				33EF448D23BF7D4800A5A8E7 /* HomeMainTableViewCell.swift in Sources */,
 				33059A0923B78A4D00A8DEC4 /* SubscribeDataSource.swift in Sources */,
+				33EF449323BFA7E500A5A8E7 /* CastTableViewCell.swift in Sources */,
 				33059A0B23B7A90700A8DEC4 /* HotDataSource.swift in Sources */,
 				333774FB23817B73006946A4 /* UpperTabBarRootViewController.swift in Sources */,
 				A0A6DEA823ADA89F00FA3F3F /* RatingViewController.swift in Sources */,
 				333774F723817B73006946A4 /* AppDelegate.swift in Sources */,
 				333774F923817B73006946A4 /* SceneDelegate.swift in Sources */,
+				33EF449123BFA2EF00A5A8E7 /* BasicInfoTableViewCell.swift in Sources */,
 				A07629DB23B4971B00616EB3 /* ImagePageViewCell.swift in Sources */,
 				33059A0523B7840E00A8DEC4 /* PosterCell.swift in Sources */,
 				33059A0223B77F2400A8DEC4 /* MainViewController.swift in Sources */,
 				A07629D723B44E2100616EB3 /* PostCell.swift in Sources */,
+				33EF448F23BF9C7100A5A8E7 /* HotVideoTableViewCell.swift in Sources */,
 				33059A0723B7884600A8DEC4 /* SubscribeCell.swift in Sources */,
 				A0A6DEA623ADA88400FA3F3F /* HomeViewController.swift in Sources */,
 			);
