@@ -87,7 +87,7 @@ extension UpperTabBarRootViewController {
         
         scrollView.snp.makeConstraints { (make) in
             make.leading.trailing.bottom.equalTo(self.view.safeAreaLayoutGuide)
-            make.top.equalTo(buttonBarView.snp.bottom)
+            make.top.equalTo(btnBar.snp.bottom)
         }
         
     }
