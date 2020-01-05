@@ -14,7 +14,14 @@ struct NetworkManager {
     
     private init() { }
     
-    func fetchJson<T: Decodable>(url: URL, type: T.Type, completionHandler completion: @escaping (Result<T, NetworkError>) -> Void) {
+    // DramaAPI -> EndPointType 프로토콜 채택 -> Enum으로 확장
+    
+    // URL Request Provider를 이용해 URL Request 생성
+    // 1. GET 일 경우 그냥 request 요청
+    // 2. POST 일 경우 buildRequest(_ route: EndPoint, model: Model? = nil)
+    // 를 이용해 모델 주입.
+    
+    func request<T: Decodable>(url: URL, type: T.Type, completionHandler completion: @escaping (Result<T, NetworkError>) -> Void) {
         
         let request = URLRequest(url: url)
         

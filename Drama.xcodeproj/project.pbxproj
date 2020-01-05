@@ -138,6 +138,7 @@
 			children = (
 				A07408CA23BE2C5100249AEE /* Networking */,
 				A060215F23B5C2BC0033549A /* Service */,
+				A0455DAD23C1B94C0059F41D /* UpperTabbarContainer */,
 				A0A6DEAB23ADE7AE00FA3F3F /* Main */,
 				333774F623817B73006946A4 /* AppDelegate.swift */,
 				333774F823817B73006946A4 /* SceneDelegate.swift */,
@@ -199,6 +200,18 @@
 				A0455D4B23C082570059F41D /* URLRequestProvider.swift */,
 			);
 			path = "Request Provider";
+			sourceTree = "<group>";
+		};
+		A0455DAD23C1B94C0059F41D /* UpperTabbarContainer */ = {
+			isa = PBXGroup;
+			children = (
+				333774FA23817B73006946A4 /* UpperTabBarRootViewController.swift */,
+				A0A6DEAD23ADE7FE00FA3F3F /* Rating */,
+				A0A6DEAC23ADE7F500FA3F3F /* Home */,
+				A0A6DEAE23ADE80700FA3F3F /* Post */,
+				A0DB11B523B7982500CB20D1 /* Video */,
+			);
+			path = UpperTabbarContainer;
 			sourceTree = "<group>";
 		};
 		A04C193B23B8961400712ADF /* View */ = {
@@ -280,15 +293,10 @@
 			isa = PBXGroup;
 			children = (
 				33059A0323B783F500A8DEC4 /* View */,
-				333774FA23817B73006946A4 /* UpperTabBarRootViewController.swift */,
 				33059A0A23B7A90700A8DEC4 /* HotDataSource.swift */,
 				33059A0123B77F2400A8DEC4 /* MainViewController.swift */,
 				33059A0823B78A4D00A8DEC4 /* SubscribeDataSource.swift */,
 				333774FC23817B73006946A4 /* Main.storyboard */,
-				A0A6DEAD23ADE7FE00FA3F3F /* Rating */,
-				A0A6DEAC23ADE7F500FA3F3F /* Home */,
-				A0A6DEAE23ADE80700FA3F3F /* Post */,
-				A0DB11B523B7982500CB20D1 /* Video */,
 			);
 			path = Main;
 			sourceTree = "<group>";
