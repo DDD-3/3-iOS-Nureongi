@@ -20,6 +20,7 @@
 		33EF449123BFA2EF00A5A8E7 /* BasicInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33EF449023BFA2EF00A5A8E7 /* BasicInfoTableViewCell.swift */; };
 		33EF449323BFA7E500A5A8E7 /* CastTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33EF449223BFA7E500A5A8E7 /* CastTableViewCell.swift */; };
 		A043C49F23C598670024E2BB /* ThumbnailPosterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A043C49E23C598670024E2BB /* ThumbnailPosterView.swift */; };
+		A043C4A123C5A33E0024E2BB /* SubscribesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A043C4A023C5A33E0024E2BB /* SubscribesView.swift */; };
 		A0455D4123C07A7D0059F41D /* EndPointType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0455D4023C07A7D0059F41D /* EndPointType.swift */; };
 		A0455D4323C07ADC0059F41D /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0455D4223C07ADC0059F41D /* HTTPMethod.swift */; };
 		A0455D4523C07CEE0059F41D /* HTTPTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0455D4423C07CEE0059F41D /* HTTPTask.swift */; };
@@ -62,6 +63,7 @@
 		33EF449223BFA7E500A5A8E7 /* CastTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastTableViewCell.swift; sourceTree = "<group>"; };
 		769B6AA2D7BCE491FA87F782 /* Pods-Drama.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Drama.release.xcconfig"; path = "Target Support Files/Pods-Drama/Pods-Drama.release.xcconfig"; sourceTree = "<group>"; };
 		A043C49E23C598670024E2BB /* ThumbnailPosterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThumbnailPosterView.swift; sourceTree = "<group>"; };
+		A043C4A023C5A33E0024E2BB /* SubscribesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscribesView.swift; sourceTree = "<group>"; };
 		A0455D4023C07A7D0059F41D /* EndPointType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPointType.swift; sourceTree = "<group>"; };
 		A0455D4223C07ADC0059F41D /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
 		A0455D4423C07CEE0059F41D /* HTTPTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPTask.swift; sourceTree = "<group>"; };
@@ -104,6 +106,7 @@
 			isa = PBXGroup;
 			children = (
 				A043C49E23C598670024E2BB /* ThumbnailPosterView.swift */,
+				A043C4A023C5A33E0024E2BB /* SubscribesView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -490,6 +493,7 @@
 				A0455D4823C07E980059F41D /* HTTPBodyEncoder.swift in Sources */,
 				A0455D4323C07ADC0059F41D /* HTTPMethod.swift in Sources */,
 				33EF449323BFA7E500A5A8E7 /* CastTableViewCell.swift in Sources */,
+				A043C4A123C5A33E0024E2BB /* SubscribesView.swift in Sources */,
 				333774FB23817B73006946A4 /* UpperTabBarRootViewController.swift in Sources */,
 				A0A6DEA823ADA89F00FA3F3F /* RatingViewController.swift in Sources */,
 				A04C193D23B8964000712ADF /* VideoCell.swift in Sources */,

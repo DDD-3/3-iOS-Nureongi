@@ -27,6 +27,11 @@ class MainViewController: UIViewController {
         let nail = ThumnailPosterView()
         return nail
     }()
+    
+    var subscribesView: SubscribesView = {
+        let subscribeView = SubscribesView()
+        return subscribeView
+    }()
    
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,6 +47,7 @@ extension MainViewController {
         self.view.addSubview(scrollView)
         scrollView.addSubview(contentView)
         contentView.addSubview(thumbnail)
+        contentView.addSubview(subscribesView)
         
         scrollView.snp.makeConstraints { (make) in
             make.top.leading.trailing.bottom.equalToSuperview()
@@ -57,6 +63,13 @@ extension MainViewController {
             make.left.equalTo(self.contentView.snp.left).offset(16)
             make.right.equalTo(self.contentView.snp.right).offset(-16)
             make.height.equalTo(200)
+        }
+        
+        subscribesView.snp.makeConstraints { (make) in
+            make.top.equalTo(thumbnail.snp.bottom).offset(28)
+            make.left.equalTo(thumbnail.snp.left)
+            make.right.equalTo(thumbnail.snp.right)
+            make.height.equalTo(300)
         }
         
     }
