@@ -53,8 +53,10 @@ extension SubscribesView: UICollectionViewDataSource, UICollectionViewDelegateFl
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: subscribeCellId, for: indexPath) as! SubscribeCell
-        cell.imageView.image = imgArr[indexPath.row]
-        
+//        cell.imageView.image = imgArr[indexPath.row]
+//        cell.backgroundColor = .lightGray
+//        cell.layer.cornerRadius = 74/2
+//        cell.imageView.contentMode = .scaleToFill
         return cell
     }
     
@@ -67,20 +69,9 @@ extension SubscribesView: UICollectionViewDataSource, UICollectionViewDelegateFl
 
 class SubscribeCell: UICollectionViewCell {
     
-    var imageView : UIImageView = {
-        let imgView = UIImageView()
-        imgView.layer.cornerRadius = 74 / 2
-        imgView.clipsToBounds = true
-        return imgView
-    }()
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
-        addSubview(imageView)
-        imageView.snp.makeConstraints { (make) in
-            make.bottom.equalTo(self.snp.bottom).offset(-20)
-            make.left.equalTo(self.snp.left).offset(20)
-        }
+        
     }
      
      required init?(coder: NSCoder) {

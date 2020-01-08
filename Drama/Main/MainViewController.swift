@@ -69,7 +69,7 @@ extension MainViewController {
             make.top.equalTo(thumbnail.snp.bottom).offset(28)
             make.left.equalTo(thumbnail.snp.left)
             make.right.equalTo(thumbnail.snp.right)
-            make.height.equalTo(300)
+            make.height.equalTo(150)
         }
         
     }
