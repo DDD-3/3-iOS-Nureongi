@@ -9,72 +9,55 @@
 import UIKit
 
 class MainViewController: UIViewController {
-    var imgArr = (1...6).map{UIImage.init(named: "\($0)")}
-    var subscribeDataSource = SubscribeDataSource()
-    var hotDataSource = HotDataSource()
     
-    @IBOutlet var posterCollectionView: UICollectionView!
-    @IBOutlet var subscribeCollectionView: UICollectionView!
-    @IBOutlet var hotCollectionView: UICollectionView!
+    lazy var scrollView: UIScrollView = {
+        let scrView = UIScrollView()
+        scrView.layer.cornerRadius = 18
+        scrView.contentSize = self.contentView.bounds.size
+        return scrView
+    }()
     
+    var contentView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .darkGray
+        return view
+    }()
+    
+    var thumbnail: ThumnailPosterView = {
+        let nail = ThumnailPosterView()
+        return nail
+    }()
+   
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        posterCollectionView.showsHorizontalScrollIndicator = false
-        posterCollectionView.isPagingEnabled = true
-
-        posterCollectionView.delegate = self
-        posterCollectionView.dataSource = self
-        
-        let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .horizontal
-        posterCollectionView.collectionViewLayout = layout
-        
-        let subscribeLayout = UICollectionViewFlowLayout()
-        subscribeLayout.scrollDirection = .horizontal
-        
-        subscribeCollectionView.delegate = subscribeDataSource
-        subscribeCollectionView.dataSource = subscribeDataSource
-        subscribeCollectionView.collectionViewLayout = subscribeLayout
-        
-        hotCollectionView.delegate = hotDataSource
-        hotCollectionView.dataSource = hotDataSource
-        
-        
+        addSubviewsAndAutoLayout()
     }
 }
 
-extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return imgArr.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "posterCell", for: indexPath) as! PosterCell
-        
-        cell.posterImageView.contentMode = .scaleToFill
-        cell.posterImageView.image = imgArr[indexPath.row]
-        
-        return cell
-    }
-}
 
-extension MainViewController: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-    }
+//MARK:- AutoLayout
+extension MainViewController {
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let size = collectionView.frame.size
+    private func addSubviewsAndAutoLayout() {
+        self.view.addSubview(scrollView)
+        scrollView.addSubview(contentView)
+        contentView.addSubview(thumbnail)
         
-        return CGSize(width: size.width, height: size.height)
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 0.0
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 0.0
+        scrollView.snp.makeConstraints { (make) in
+            make.top.leading.trailing.bottom.equalToSuperview()
+        }
+        
+        contentView.snp.makeConstraints { (make) in
+            make.width.equalTo(self.view.bounds.width)
+            make.height.equalTo(1000)
+        }
+        
+        thumbnail.snp.makeConstraints { (make) in
+            make.top.equalTo(self.contentView.snp.top).offset(26)
+            make.left.equalTo(self.contentView.snp.left).offset(16)
+            make.right.equalTo(self.contentView.snp.right).offset(-16)
+            make.height.equalTo(200)
+        }
+        
     }
 }
