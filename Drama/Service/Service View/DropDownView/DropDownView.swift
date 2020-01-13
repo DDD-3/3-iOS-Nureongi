@@ -23,6 +23,7 @@ class DropDownView: UIView, UITableViewDelegate, UITableViewDataSource {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.separatorStyle = .none
+        tableView.backgroundColor = .black
         
         self.addSubview(tableView)
         
@@ -42,8 +43,8 @@ class DropDownView: UIView, UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
         
-        cell.textLabel?.textColor = .black
-        cell.backgroundColor = .white
+        cell.textLabel?.textColor = .white
+        cell.backgroundColor = .black
         cell.textLabel?.font = .boldSystemFont(ofSize: 14)
         cell.textLabel?.text = dropDownArray[indexPath.row]
         

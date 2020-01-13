@@ -16,12 +16,17 @@ class PostViewController: UIViewController, IndicatorInfoProvider {
     
     
      //MARK: - Views Start
-    var tableView = UITableView()
+    var tableView : UITableView = {
+       let tableView = UITableView()
+       tableView.backgroundColor = .black
+       return tableView
+    }()
+    
     var sectionHeaderRemoved: Bool = false
     
     var sectionHeader : UIView = {
         let sectionHeader = UIView()
-        sectionHeader.backgroundColor = .white
+        sectionHeader.backgroundColor = .black
         sectionHeader.translatesAutoresizingMaskIntoConstraints = false
         return sectionHeader
     }()
@@ -29,21 +34,18 @@ class PostViewController: UIViewController, IndicatorInfoProvider {
     var leftButton: DropDownButton = {
           let leftBtn = DropDownButton(array: ["전체","구독","북마크"])
           leftBtn.titleLabel?.font = .boldSystemFont(ofSize: 15)
-          leftBtn.setTitleColor(.black, for: .normal)
+          leftBtn.setTitleColor(.white, for: .normal)
           return leftBtn
     }()
     
     var rightButton: DropDownButton = {
         let rightBtn = DropDownButton(array: ["인기순","전체순","화제순"])
         rightBtn.titleLabel?.font = .boldSystemFont(ofSize: 15)
-        rightBtn.setTitleColor(.black, for: .normal)
+        rightBtn.setTitleColor(.white, for: .normal)
         return rightBtn
     }()
-     //MARK: - Views End
     
-    func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
-        return IndicatorInfo(title: "POST")
-    }
+    
     
 
     //MARK: - View LifeCycle
@@ -53,14 +55,17 @@ class PostViewController: UIViewController, IndicatorInfoProvider {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(PostCell.self, forCellReuseIdentifier: postCellID)
-        tableView.rowHeight = UITableView.automaticDimension
         
         setupTableView()
     }
     
+    func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
+        return IndicatorInfo(title: "POST")
+    }
+    
 }
 
-//MARK: - TableView DataSource & Delegate
+//MARK: - CollectionView DataSource & Delegate
 
 extension PostViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -68,16 +73,17 @@ extension PostViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: postCellID, for: indexPath)  as! PostCell
-        cell.selectionStyle = .none
+        let cell = tableView.dequeueReusableCell(withIdentifier: postCellID, for: indexPath)
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 300
+        return 200
     }
-   
+    
+
+
     // Section Header 스크롤때마다 나타나고 사라지고 구현
     func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
 
@@ -91,16 +97,6 @@ extension PostViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
 }
-
-
-
-
-
-
-
-
-
-
 
 
 //MARK: - UI AutoLayout

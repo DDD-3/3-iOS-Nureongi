@@ -25,17 +25,18 @@ class UpperTabBarRootViewController: ButtonBarPagerTabStripViewController {
         configureButtonBar()
         
         setupScrollView()
+        
     }
 
     
     override func viewControllers(for pagerTabStripController: PagerTabStripViewController) -> [UIViewController] {
 
-         let child1 = HomeViewController()
+         //let child1 = HomeViewController()
          let child2 = RatingViewController()
          let child3 = PostViewController()
          let child4 = VideoViewController()
 
-         return [child1, child2, child3, child4]
+         return [child2, child3, child4]
     }
 }
 
@@ -43,6 +44,7 @@ class UpperTabBarRootViewController: ButtonBarPagerTabStripViewController {
 // MARK: - 상단 탭바 커스터마이징
 extension UpperTabBarRootViewController {
     private func configureButtonBar() {
+        self.view.backgroundColor = .black
         btnBar.backgroundColor = UIColor.naviColor
          // Sets the background colour of the pager strip and the pager strip item
          settings.style.buttonBarBackgroundColor = UIColor.naviColor
@@ -50,7 +52,7 @@ extension UpperTabBarRootViewController {
         
 
          // Sets the pager strip item font and font color
-         settings.style.buttonBarItemFont = UIFont(name: "Helvetica", size: 13.0)!
+         settings.style.buttonBarItemFont = UIFont(name: "Helvetica", size: 18.0)!
         settings.style.buttonBarItemTitleColor = .white
 
          // Sets the pager strip item offsets

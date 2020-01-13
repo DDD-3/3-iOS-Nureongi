@@ -25,6 +25,7 @@ class VideoCell: BaseTableViewCell {
         let title = UILabel()
         title.text = "드라마 제목인데 무슨 드라마일까요. 드라마 제목 드라마 제목"
         title.numberOfLines = 0
+        title.textColor = .white
         title.font = .boldSystemFont(ofSize: 14)
         return title
     }()
@@ -53,6 +54,8 @@ class VideoCell: BaseTableViewCell {
 extension VideoCell {
     private func setupAutoLayout() {
         
+        backgroundColor = .black
+        selectionStyle = .none
         addSubview(imgView)
         addSubview(title)
         addSubview(owner)

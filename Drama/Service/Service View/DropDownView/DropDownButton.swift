@@ -18,8 +18,8 @@ class DropDownButton: UIButton, DropDownDataSendable {
     override init(frame: CGRect) {
         super.init(frame: frame)
         dropView.delegate = self
-        backgroundColor = .white
-        setTitleColor(.black, for: .normal)
+        backgroundColor = .black
+        setTitleColor(.white, for: .normal)
         
     }
     

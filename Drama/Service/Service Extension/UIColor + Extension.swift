@@ -16,7 +16,14 @@ extension UIColor {
     
     static var naviColor: UIColor {
         //return UIColor.rgb(red: 230, green: 50, blue: 50, alpha: 1.0)
-        return UIColor.lightGray
+        return UIColor.black
     }
     
+    static var cardCellBackgroundColor: UIColor {
+        return UIColor.rgb(red: 32, green: 32, blue: 32, alpha: 1.0)
+    }
+    
+    static var textGrayColor: UIColor {
+        return UIColor.rgb(red: 168, green: 168, blue: 168, alpha: 1.0)
+    }
 }

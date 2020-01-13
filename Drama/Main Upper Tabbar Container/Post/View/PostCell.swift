@@ -11,167 +11,125 @@ import SnapKit
 
 class PostCell: BaseTableViewCell {
     
-    private var imagePageViewCellID = "imagePageViewCellId"
-    
     //MARK: - Views Start
-    var cellView: UIView = {
-       let cellView = UIView(frame: CGRect.zero)
-       return cellView
+    var cardView: UIView = {
+       let cardView = UIView()
+       cardView.backgroundColor = .cardCellBackgroundColor
+       cardView.layer.cornerRadius = 6
+       return cardView
     }()
     
-    lazy var thumbnail: UICollectionView = {
-       let layout = UICollectionViewFlowLayout()
-       layout.scrollDirection = .horizontal
-       let imagePageView = UICollectionView(frame: cellView.frame , collectionViewLayout: layout)
-       imagePageView.backgroundColor = .clear
-       return imagePageView
+    var profileImg: UIImageView = {
+       let imgView = UIImageView(frame: CGRect(x: 0, y: 0, width: 34, height: 34))
+       imgView.layer.cornerRadius = 17
+       imgView.backgroundColor = .systemPurple
+       return imgView
     }()
     
-    lazy var stackView: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [likeButton, pageController, postButton])
-        stackView.distribution = .fillProportionally
-        return stackView
-    }()
-    
-    var likeButton: UIButton = {
-        let likeBtn = UIButton()
-        likeBtn.backgroundColor = .red
-        return likeBtn
-    }()
-    
-    var pageController: UIPageControl = {
-       let pageCount = UIPageControl()
-        pageCount.currentPage = 0
-        pageCount.currentPageIndicatorTintColor = .red
-        pageCount.pageIndicatorTintColor = .gray
-        pageCount.numberOfPages = 3
-        pageCount.hidesForSinglePage = true
-        pageCount.isUserInteractionEnabled = false
-        return pageCount
-    }()
-    
-    var postButton: UIButton = {
-      let postBtn = UIButton()
-      postBtn.backgroundColor = .darkGray
-      return postBtn
-    }()
-    
-    var titleLabel: UILabel = {
+    var userName: UILabel = {
        let lbl = UILabel()
-        lbl.font = .boldSystemFont(ofSize: 14)
-        lbl.text = "동백꽃 필 무렵"
+        lbl.font = .boldSystemFont(ofSize: 15)
+        lbl.text = "익명"
+        lbl.textColor = .white
        return lbl
     }()
     
-    var descriptionLabel: UILabel = {
+    var date: UILabel = {
         let lbl = UILabel()
         lbl.font = .systemFont(ofSize: 13)
-        lbl.numberOfLines = 0
-        lbl.text = "편견에 갇힌 맹수 동백을 깨우는, 촌므파탈 황용식이의 폭격형 로맨스 사랑하면 다 돼! 이들을 둘러싼 생활밀착형 치정 로맨스 사랑 같은 소리하네."
+        lbl.text = "2020.01.12 17:23"
+        lbl.textColor = .textGrayColor
         return lbl
     }()
-
     
-
+    var postImg: UIImageView = {
+        let postImg = UIImageView()
+        postImg.contentMode = .scaleAspectFill
+        postImg.clipsToBounds = true
+        return postImg
+    }()
+    
+    var postingSentence: UILabel = {
+       let posting = UILabel()
+       posting.font = .systemFont(ofSize: 13)
+       posting.text = "아 이번화 진짜 재밌지 않았나요 특히 이 장면에서 일명이가 명이아 이번화 진짜 재밌지 않았나요 특히 이 장면 에서 일명이가이명이아 이번화 진짜 재밌지 않았나요 특히 이 장면에서  이…"
+       posting.numberOfLines = 3
+       posting.textColor = .textGrayColor
+       posting.lineBreakMode = .byTruncatingTail
+       return posting
+    }()
     
     //MARK: - Initailizer
     override func setupViews() {
-        thumbnail.dataSource = self
-        thumbnail.delegate = self
-        thumbnail.register(ImagePageViewCell.self, forCellWithReuseIdentifier: imagePageViewCellID)
-        thumbnail.isPagingEnabled = true
+        
+        backgroundColor = .black
+        //postImg.image = UIImage(named: "동백꽃.jpeg")
         
         autoLayoutSetup()
     }
 }
 
 
-
-//MARK: - UICollectionView 
-
-extension PostCell: UICollectionViewDataSource, UICollectionViewDelegate,UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 3
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: imagePageViewCellID, for: indexPath) as! ImagePageViewCell
-        
-        return cell
-    }
-    
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        layoutIfNeeded()
-        return CGSize(width: self.cellView.bounds.width, height: self.cellView.bounds.height)
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 0
-    }
-    
-    // 페이지 컨트롤과 스크롤뷰 연동
-    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
-        
-        let x = targetContentOffset.pointee.x
-        
-        pageController.currentPage = Int(x / self.cellView.frame.width)
-        
-    }
-}
-
-
-
-
-
-
 //MARK: - UI AutoLayout
 extension PostCell {
     private func autoLayoutSetup() {
+        self.addSubview(cardView)
+        cardView.addSubview(profileImg)
+        cardView.addSubview(userName)
+        cardView.addSubview(date)
         
-        self.addSubview(cellView)
-        cellView.addSubview(thumbnail)
-        self.addSubview(stackView)
-        self.addSubview(titleLabel)
-        self.addSubview(descriptionLabel)
-        
-        cellView.snp.makeConstraints { (make) in
-            //make.top.leading.trailing.equalToSuperview().offset(15)
-            make.top.equalTo(self.snp.top).offset(15)
-            make.leading.equalTo(self.snp.leading).offset(15)
-            make.trailing.equalTo(self.snp.trailing).offset(-15)
-            make.width.equalTo(self.snp.width).offset(-30)
-            make.height.equalTo(150)
+        cardView.snp.makeConstraints { (make) in
+            make.top.equalTo(self.snp.top)
+            make.leading.equalTo(self.snp.leading).offset(12)
+            make.trailing.equalTo(self.snp.trailing).offset(-12)
+            make.bottom.equalTo(self.snp.bottom).offset(-18)
+            //make.height.equalTo(500)
         }
         
-        stackView.snp.makeConstraints { (make) in
-            make.top.equalTo(thumbnail.snp.bottom).offset(10)
-            make.leading.equalTo(self.snp.leading).offset(15)
-            make.trailing.equalTo(self.snp.trailing).offset(-15)
-        }
         
-        postButton.snp.makeConstraints { (make) in
-            make.width.height.equalTo(35)
+        profileImg.snp.makeConstraints { (make) in
+            make.leading.equalTo(cardView.snp.leading).offset(14)
+            make.top.equalTo(cardView.snp.top).offset(15)
+            make.width.equalTo(34)
+            make.height.equalTo(34)
         }
-        
-        likeButton.snp.makeConstraints { (make) in
-            make.width.height.equalTo(35)
+
+        userName.snp.makeConstraints { (make) in
+            make.top.equalTo(self.profileImg.snp.top)
+            make.leading.equalTo(self.profileImg.snp.trailing).offset(10)
         }
-        
-        titleLabel.snp.makeConstraints { (make) in
-            make.leading.equalTo(self.snp.leading).offset(15)
-            make.top.equalTo(stackView.snp.bottom).offset(10)
+
+        date.snp.makeConstraints { (make) in
+            make.top.equalTo(self.userName.snp.bottom)
+            make.leading.equalTo(self.userName.snp.leading)
         }
-        
-        descriptionLabel.snp.makeConstraints { (make) in
-            make.top.equalTo(titleLabel.snp.bottom).offset(5)
-            make.leading.equalTo(self.snp.leading).offset(15)
-            make.trailing.equalTo(self.snp.trailing).offset(-15)
-            make.bottom.equalTo(self.snp.bottom).offset(-10)
-        }
-        
-        thumbnail.snp.makeConstraints { (make) in
-            make.top.leading.trailing.bottom.equalToSuperview()
+
+        if postImg.image != nil {
+            cardView.addSubview(postImg)
+
+            postImg.snp.makeConstraints { (make) in
+                make.top.equalTo(profileImg.snp.bottom).offset(12)
+                make.leading.equalTo(cardView.snp.leading)
+                make.trailing.equalTo(cardView.snp.trailing)
+                make.height.equalTo( ((self.bounds.size.width - 24) * 135) / 351 )
+            }
+            cardView.addSubview(postingSentence)
+            
+            postingSentence.snp.makeConstraints { (make) in
+                make.top.equalTo(postImg.snp.bottom).offset(11)
+                make.leading.equalTo(cardView.snp.leading).offset(12)
+                make.trailing.equalTo(cardView.snp.trailing).offset(-12)
+                make.bottom.equalTo(cardView.snp.bottom).offset(-48)
+            }
+        } else {
+            cardView.addSubview(postingSentence)
+            
+            postingSentence.snp.makeConstraints { (make) in
+                make.top.equalTo(profileImg.snp.bottom).offset(13)
+                make.leading.equalTo(cardView.snp.leading).offset(12)
+                make.trailing.equalTo(cardView.snp.trailing).offset(-12)
+                make.bottom.equalTo(cardView.snp.bottom).offset(-48)
+            }
         }
     }
 }

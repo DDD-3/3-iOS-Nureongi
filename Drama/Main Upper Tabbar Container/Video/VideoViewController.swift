@@ -16,18 +16,22 @@ class VideoViewController: UIViewController, IndicatorInfoProvider {
     var sectionHeaderRemoved : Bool = false
     
     //MARK: - Views Start
-    var tableView = UITableView()
+    var tableView : UITableView = {
+       let table = UITableView()
+       table.backgroundColor = .black
+       return table
+    }()
     
     var sectionHeader : UIView = {
         let sectionHeader = UIView()
-        sectionHeader.backgroundColor = .white
+        sectionHeader.backgroundColor = .black
         return sectionHeader
     }()
     
     var leftButton: DropDownButton = {
           let leftBtn = DropDownButton(array: ["인기순","추천순","구됵순"])
           leftBtn.titleLabel?.font = .boldSystemFont(ofSize: 15)
-          leftBtn.setTitleColor(.black, for: .normal)
+          leftBtn.setTitleColor(.white, for: .normal)
           return leftBtn
     }()
     
@@ -35,6 +39,7 @@ class VideoViewController: UIViewController, IndicatorInfoProvider {
     //MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         
         tableView.delegate = self
         tableView.dataSource = self
